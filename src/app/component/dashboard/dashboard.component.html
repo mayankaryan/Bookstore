@@ -5,16 +5,16 @@
 
      <div class="filter">
         <mat-form-field> 
-            <mat-select [(value)]="selectedSortOption">
-                <mat-option value="relevence" >Sort by relevance</mat-option>
-                <mat-option value="lowtohigh">Price: Low to High</mat-option>
-                <mat-option value="hightolow">Price: High to Low</mat-option>
+            <mat-select (selectionChange)="filter($event.value)" >
+                <mat-option value="quantity" >Sort by relevance</mat-option>
+                <mat-option value="price">Price: Low to High</mat-option>
+                <mat-option value="discountPrice">Price: Discount</mat-option>
             </mat-select>
           </mat-form-field>
      </div>
     </div>
     <div class="books">
-       <div *ngFor="let book of booklist">
+       <div *ngFor="let book of filteredBookList">
         <app-bookwidget [book]="book"></app-bookwidget>
        </div>
     </div>

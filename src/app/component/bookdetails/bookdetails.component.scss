@@ -1,0 +1,36 @@
+
+.book_details_div{
+    padding-left: 20px;
+}
+.book_title{
+    margin-bottom: 0px;
+}
+span{
+    color: #878787;
+}
+
+.book_rating{
+    color: #ffffff !important;
+    background-color: #388E3C;
+    width: 30px;
+    height: 16px;
+    padding: 2px 4px;
+    margin-right: 5px;
+
+}
+.offer{
+    font-weight: 300 !important;
+    text-decoration:line-through;
+}
+.bookdetails_page_div{
+    display: flex;
+}
+.book_images{
+    display: flex;
+}
+.book_primary_details{
+    border-bottom:1px solid #D1D1D1;
+}
+.book_details{
+    border-bottom: 1px solid #D1D1D1;
+}
