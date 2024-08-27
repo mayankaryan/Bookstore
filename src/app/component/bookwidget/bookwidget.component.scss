@@ -4,11 +4,46 @@
     border: 1px solid #E2E2E2;
     border-radius: 3px;
     justify-content: center;
+
+    &:hover{
+        box-shadow: 0 3px 6px 0 rgb(78, 76, 76);
+        .view_hover{
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+.out_of_stock{
+    z-index: 10;
+    position: absolute;
+    background-color:#ffffff;
+    
+    color:black;
+    
+    height: 24px;
+    top:150px;
+    left: 65px;
+   
+}
+.view_hover{
+    z-index: 10;
+    position: absolute;
+    background-color: #000000;
+    opacity: 71%;
+    color:#ffffff;
+    // width: 70px;
+    height: 24px;
+    top:150px;
+    left: 75px;
+    display: none;
+
 }
 
 .img_div{
     background-color: #F5F5F5;
     padding: 20px 65px;
+    position: relative;
 }
 img{
     width: 100px;

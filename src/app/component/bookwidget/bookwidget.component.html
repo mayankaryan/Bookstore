@@ -1,6 +1,12 @@
 <div class="book_widget">
     <div class="img_div">
-       <img src="../../../assets/books/book 12.png" alt="book 12" >
+       <img [src]="book.book_url" alt="book 12" >
+       <div class="view_hover" [routerLink]="['/book']" >
+         <p>QUICK VIEW</p>
+       </div>
+       <div *ngIf="book.quantity==2" class="out_of_stock">
+         <p >OUT OF STOCK</p>
+       </div>
     </div>
     <div class="book_details_div">
        <h2 class="book_title">{{book.bookName}} </h2>

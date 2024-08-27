@@ -9,7 +9,18 @@ import { DataService } from '../../service/data.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-
+  bookimages:any[]=[
+    '../../../assets/books/book1.png',
+    '../../../assets/books/book2.png',
+    '../../../assets/books/book3.png',
+    '../../../assets/books/book4.png',
+    '../../../assets/books/book5.png',
+    '../../../assets/books/book7.png',
+    '../../../assets/books/book8.png',
+    '../../../assets/books/image10.png',
+    '../../../assets/books/book12.png',
+    '../../../assets/books/book13.png',
+  ];
   booklist:any[]=[];
   @Input() searchText: string = '';
   filteredBookList:any[]=[];
@@ -18,12 +29,21 @@ export class DashboardComponent {
     this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
       next:(res:any)=>{
         this.booklist=res.result;
+        console.log(this.booklist);
+        this.booklist = this.booklist.map((note: any) => ({
+          ...note,
+          book_url: this.getRandombookimg()
+        }));
         this.filteredBookList=this.booklist;
+        console.log("filtered",this.booklist);
         console.log(res.result[0]);
       },error:(err:any)=>{
         console.log(err);
       }
     })
+
+   
+    
     this.dataservice.currentMessage.subscribe((message) => {
       this.searchText =message ;
 });
@@ -31,6 +51,11 @@ export class DashboardComponent {
 
   length(): number {
     return this.booklist.length;
+  }
+
+  getRandombookimg(){
+    const randomIndex = Math.floor(Math.random() * this.bookimages.length);
+    return this.bookimages[randomIndex];
   }
 
  filter(event:any){
