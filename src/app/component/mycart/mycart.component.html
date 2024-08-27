@@ -20,12 +20,19 @@
                 <p>Don't make me think</p>
                 <p id="auther-name">by Steve Krug</p>
                 <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
-            </div>
+                <div class="book-count">
+                    <button (click)="decrement()"><mat-icon>remove</mat-icon></button>
+                    <input type="number" [(ngModel)]="bookCount" >
+                    <button (click)="increment()"><mat-icon>add</mat-icon></button>
+                    
+                </div>
+            </div>         
         </div>
+        
         <div class="btn-cnt">
             <button>PLACE ORDER</button>
         </div>
-        
+
     </div>
 
     <div class="customer-cnt">
@@ -48,16 +55,16 @@
         <div class="customer-address">
             <mat-radio-group [(ngModel)]="custAddress">
                 <div>
-                    <mat-radio-button  value="work"><span id="add-title">1. Work</span></mat-radio-button>
+                    <mat-radio-button value="work"><span id="add-title">1. Work</span></mat-radio-button>
                     <div class="address">
                         <p>Address</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit.
+                            Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos,
+                            necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!</p>
                     </div>
                 </div>
-                <!-- <div>
-                    <mat-radio-button value="Home">2. Home</mat-radio-button>
-                </div> -->
-              </mat-radio-group>
+                
+            </mat-radio-group>
         </div>
         <div class="btn-cnt">
             <button>CONTINUE</button>
