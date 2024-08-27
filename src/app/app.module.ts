@@ -16,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { FooterComponent } from './component/footer/footer.component';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import { ProfileDetailsComponent } from './component/profile-details/profile-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import {MatIconModule} from '@angular/material/icon'
     DashboardComponent,
     BookdetailsComponent,
     BookwidgetComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ProfileDetailsComponent,
   ],
   imports: [
     BrowserModule,
