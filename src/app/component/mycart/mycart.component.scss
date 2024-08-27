@@ -7,16 +7,15 @@
 
 .route-cnt {
     font-weight: 500;
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 .home-span {
     color: #9D9D9D;
 }
 
 .cart-cnt {
-    border: 1px solid #707070;
+    border: 1px solid #DCDCDC;
     padding: 1em 1em 2em 1em;
-
 }
 .cart-heading {
     display: flex;
@@ -41,7 +40,7 @@
 
 .cart-content {
     display: inline-flex;
-    margin-left: 1em;
+    margin: 1em 0 0 1em;
     align-items: flex-start;
 }
 
@@ -74,7 +73,7 @@ img {
 
 .customer-cnt {
     margin: 1em 0;
-    border: 1px solid #707070;
+    border: 1px solid #DCDCDC;
     padding: 1em 1em;
 }
 .customer-cnt p {
@@ -96,9 +95,40 @@ img {
     padding: 5px 8px;
     border-radius: 1px;
 }
+.customer-detail div{
+    display: inline-block;
+    width: 50%;
+}
+.customer-detail label {
+    margin-left: 1em;
+}
+.customer-detail input {
+    display: block;
+    width: 80%;
+    height: 3em;
+    padding-left: 1em;
+    border: 1px solid #DCDCDC;
+    outline: 1px solid #DCDCDC;
+}
+.customer-address {
+    margin-top: 1em;
+}
+#add-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+.address {
+    margin-left: 2em;
+}
+.address p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
 
 .summary-cnt {
-    border: 1px solid #707070;
+    border: 1px solid #DCDCDC;
     padding: 1em 1em;
 }
 .summary-cnt p {
@@ -106,4 +136,17 @@ img {
     font-weight: 500;
     margin-left: 1em;
 }
+.btn-cnt {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.btn-cnt button {
+    background: #3371B5;
+    color: #FFFFFF;
+    width: 30%;
+    height: 2.5em;
+    font-size: larger;
+    border-radius: .5em;
+    border: none;
 
+}
