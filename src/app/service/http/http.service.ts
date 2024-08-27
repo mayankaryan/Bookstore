@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -13,4 +13,10 @@ export class HttpService {
     console.log(headers);
     return this.httpClient.get( this.BaseUrl + url, headers)
   }
+ 
+ GetApiCall(url:string){
+  console.log(this.BaseUrl+url);
+  return this.httpClient.get(this.BaseUrl+url);
+
+ }
 }
