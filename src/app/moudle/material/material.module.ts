@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { A11yModule } from '@angular/cdk/a11y';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -45,10 +44,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
-<<<<<<< HEAD
   declarations: [],
-  exports: [
-=======
+
   exports: [
     A11yModule,
     ClipboardModule,
@@ -93,8 +90,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
->>>>>>> 590ea8ce42003a0de092cd0f0671b188abab27b0
-    CommonModule
+    CommonModule,
   ]
 })
 export class MaterialModule {}
