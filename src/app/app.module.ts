@@ -13,7 +13,8 @@ import { MaterialModule } from './moudle/material/material.module';
 import { BookwidgetComponent } from './component/bookwidget/bookwidget.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { WishlistComponent } from './component/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatIconModule } from '@angular/material/icon'
     DashboardComponent,
     BookdetailsComponent,
     BookwidgetComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

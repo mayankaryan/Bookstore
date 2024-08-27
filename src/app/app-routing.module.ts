@@ -4,6 +4,7 @@ import { MycartComponent } from './component/mycart/mycart.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BookdetailsComponent } from './component/bookdetails/bookdetails.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { WishlistComponent } from './component/wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   { 
     path: 'mycart', 
     component: MycartComponent
+  },
+  {
+    path: 'wishlist',
+    component: WishlistComponent
   },
   {
     path: 'book',
