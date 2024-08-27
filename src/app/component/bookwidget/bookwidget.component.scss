@@ -1,0 +1,40 @@
+.book_widget{
+    width: 233px;
+    height: auto;
+    border: 1px solid #E2E2E2;
+    border-radius: 3px;
+    justify-content: center;
+}
+
+.img_div{
+    background-color: #F5F5F5;
+    padding: 20px 65px;
+}
+img{
+    width: 100px;
+    height: 135px;
+}
+
+.book_details_div{
+    padding-left: 20px;
+}
+.book_title{
+    margin-bottom: 0px;
+}
+span{
+    color: #878787;
+}
+
+.book_rating{
+    color: #ffffff !important;
+    background-color: #388E3C;
+    width: 30px;
+    height: 16px;
+    padding: 2px 4px;
+    margin-right: 5px;
+
+}
+.offer{
+    font-weight: 300 !important;
+    text-decoration:line-through;
+}
