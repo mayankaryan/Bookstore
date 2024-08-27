@@ -22,6 +22,9 @@
                 <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
             </div>
         </div>
+        <div class="btn-cnt">
+            <button>PLACE ORDER</button>
+        </div>
         
     </div>
 
@@ -32,11 +35,52 @@
                 Add New Address
             </div>
         </div>
+        <div class="customer-detail">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" value="Mayank Aryan">
+            </div>
+            <div>
+                <label for="mobile num">Mobile Number</label>
+                <input type="number" value="7050783093">
+            </div>
+        </div>
+        <div class="customer-address">
+            <mat-radio-group [(ngModel)]="custAddress">
+                <div>
+                    <mat-radio-button  value="work"><span id="add-title">1. Work</span></mat-radio-button>
+                    <div class="address">
+                        <p>Address</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!</p>
+                    </div>
+                </div>
+                <!-- <div>
+                    <mat-radio-button value="Home">2. Home</mat-radio-button>
+                </div> -->
+              </mat-radio-group>
+        </div>
+        <div class="btn-cnt">
+            <button>CONTINUE</button>
+        </div>
+
     </div>
 
     <div class="summary-cnt">
         <p>Order summary</p>
 
+        <div class="cart-content">
+            <div class="img-cnt">
+                <img src="../../../assets/books/book 2.png" alt="">
+            </div>
+            <div class="book-detials">
+                <p>Don't make me think</p>
+                <p id="auther-name">by Steve Krug</p>
+                <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
+            </div>
+        </div>
+        <div class="btn-cnt">
+            <button>CHECKOUT</button>
+        </div>
     </div>
 </div>
 
