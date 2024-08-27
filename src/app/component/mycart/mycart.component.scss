@@ -65,9 +65,10 @@ img {
     color: #9D9D9D;
     text-decoration: line-through;
 }
-.auther-name {
+#auther-name {
     color: #9D9D9D;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 300;
 }
 
 
@@ -81,6 +82,20 @@ img {
     font-weight: 500;
     margin-left: 1em;
 }
+.customer-heading {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-bottom: 1em;
+}
+.add-new-address {
+    display: flex;
+    color: #A03037;
+    border: 1px solid #A03037;
+    margin-right: 1em;
+    padding: 5px 8px;
+    border-radius: 1px;
+}
 
 .summary-cnt {
     border: 1px solid #707070;
@@ -91,3 +106,4 @@ img {
     font-weight: 500;
     margin-left: 1em;
 }
+
