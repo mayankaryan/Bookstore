@@ -33,8 +33,12 @@
 .wishlist-content {
     display: flex;
     padding: 3em 2em;
-    align-items: flex-start;
+    // align-items: flex-start;
     border-bottom: 1px solid #DCDCDC;
+    justify-content: space-between;
+}
+.wishlist-content div {
+    display: flex;
 }
 
 img {
@@ -46,6 +50,7 @@ img {
     display: flex;
     flex-direction: column;
     // align-items: flex-start;
+    // padding-right: 70%;
 }
 .book-detials p {
     font-size: 18px;
@@ -65,12 +70,11 @@ img {
 
 .delete-btn {
     display: flex;
-    justify-content: end;
-    float: right;
-    margin-left: 50%;
+    align-items: flex-start;
 }
 .delete-btn button {
     border: none;
     background: none;
     color: #9D9D9D;
+    cursor: pointer;
 }
