@@ -7,6 +7,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     ForgotPasswordComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     BrowserModule,
