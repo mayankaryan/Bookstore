@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../../service/http/http.service';
+import { Input } from '@angular/core';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +11,10 @@ import { HttpService } from '../../service/http/http.service';
 export class DashboardComponent {
 
   booklist:any[]=[];
+  @Input() searchText: string = '';
   filteredBookList:any[]=[];
   selectedSortOption: string = 'relevance'; 
-  constructor(private httpservice:HttpService) { 
+  constructor(private httpservice:HttpService,private dataservice:DataService) { 
     this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
       next:(res:any)=>{
         this.booklist=res.result;
@@ -21,6 +24,9 @@ export class DashboardComponent {
         console.log(err);
       }
     })
+    this.dataservice.currentMessage.subscribe((message) => {
+      this.searchText =message ;
+});
   }
 
   length(): number {
