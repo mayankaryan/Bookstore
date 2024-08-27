@@ -14,7 +14,8 @@ import { BookwidgetComponent } from './component/bookwidget/bookwidget.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
-import { OrderPlacedComponent } from './component/order-placed/order-placed.component'
+import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
+import { PleaseLoginComponent } from './component/please-login/please-login.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { OrderPlacedComponent } from './component/order-placed/order-placed.comp
     BookdetailsComponent,
     BookwidgetComponent,
     ForgotPasswordComponent,
-    OrderPlacedComponent
+    OrderPlacedComponent,
+    PleaseLoginComponent
   ],
   imports: [
     BrowserModule,
