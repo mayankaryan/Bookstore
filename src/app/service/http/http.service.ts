@@ -16,6 +16,5 @@ export class HttpService {
  GetApiCall(url:string){
   console.log(this.BaseUrl+url);
   return this.httpClient.get(this.BaseUrl+url);
-
  }
 }

@@ -10,46 +10,50 @@ import { HttpService } from 'src/app/service/http/http.service';
 })
 export class MycartComponent implements OnInit {
   cartItems: any;
-  custAddress: any;
-  bookCount: number = 0;
-  Address: any = [
-    {
-      "type": "Work",
-      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
-      "region": "koramangala",
-      "state": "Karnataka"
-    },
-    {
-      "type": "Home",
-      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
-      "region": "koramangala",
-      "state": "Karnataka"
-    },
-    {
-      "type": "Other",
-      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
-      "region": "koramangala",
-      "state": "Karnataka"
-    }
-  ];
+  cartLen: number = 0;
+  user: any = {};
+  address: any = {};
+  custAddress: number = -1;
 
-  constructor( private cartServices: CartService) {
+  addressDetails: boolean = false;
+  summaryContent: boolean = false;
 
-    
-  }
+  constructor(private cartServices: CartService) { }
 
   ngOnInit(): void {
 
-  
+    this.cartServices.getMyCartItem().subscribe({             // getting cart items from cart service 
+      next: (res: any) => {
+        this.cartItems = res.result;
+
+        this.cartLen = res.result.length;
+        this.cartServices.getCartItemCount(this.cartLen);     // calling cart service to share carl item count to navbar
+
+        this.user = res.result[0].user_id;
+        this.address = res.result[0].user_id.address;
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    });
   }
 
-  increment() {
-    this.bookCount = this.bookCount + 1;
+  increment(index: number) {                                                             // function to increase book count
+    console.log(this.cartItems[index].quantityToBuy);
+    this.cartItems[index].quantityToBuy = this.cartItems[index].quantityToBuy + 1;      // logic: count = count + 1
   }
-  decrement () { 
-    if( this.bookCount > 0)
-      this.bookCount = this.bookCount - 1;
+  decrement(index: number) {                                                            // fuction to decrease book count
+    if (this.cartItems[index].quantityToBuy > 0)
+      this.cartItems[index].quantityToBuy = this.cartItems[index].quantityToBuy - 1;    // logic: count = count -1
   }
-  getMyCartItems() {
+  
+
+  onPlaceOrder() {
+    this.addressDetails = !this.addressDetails
+  }
+  onContinue () {
+    if( this.custAddress != -1 ) {
+      this.summaryContent = !this.summaryContent;
+    }
   }
 }
