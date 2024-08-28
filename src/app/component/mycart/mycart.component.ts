@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
-<<<<<<< HEAD
 import { HttpService } from 'src/app/service/http/http.service';
 
-=======
->>>>>>> f7e0dc37edddb5ab8e75928ef3dd0b027c531f42
 
 @Component({
   selector: 'app-mycart',
@@ -15,18 +12,35 @@ export class MycartComponent implements OnInit {
   cartItems: any;
   custAddress: any;
   bookCount: number = 0;
+  Address: any = [
+    {
+      "type": "Work",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
+      "region": "koramangala",
+      "state": "Karnataka"
+    },
+    {
+      "type": "Home",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
+      "region": "koramangala",
+      "state": "Karnataka"
+    },
+    {
+      "type": "Other",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
+      "region": "koramangala",
+      "state": "Karnataka"
+    }
+  ];
 
-  constructor( private cartServices: CartService) {}
+  constructor( private cartServices: CartService) {
+
+    
+  }
 
   ngOnInit(): void {
-    this.cartServices.getMyCartItems().subscribe({
-      next: (res:any) => {
-        console.log(res);
-      },
-      error: (err: any) => {
-        console.log(err);
-      }
-    })
+
+  
   }
 
   increment() {
