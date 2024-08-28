@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-signup.component.scss']
 })
 export class LoginSignupComponent {
+        isLoginVisible = true;
 
+        showLogin() {
+          this.isLoginVisible = true;
+        }
+
+        showSignup() {
+          this.isLoginVisible = false;
+        }
 }
