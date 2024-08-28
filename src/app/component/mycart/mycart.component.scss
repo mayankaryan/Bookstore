@@ -96,7 +96,6 @@ img {
     color: #333232;
 }
 
-
 .customer-cnt {
     margin: 1em 0;
     border: 1px solid #DCDCDC;
@@ -166,6 +165,9 @@ img {
     font-weight: 500;
 }
 
+.edit-address {
+    margin-bottom: 1em;
+}
 .edit-address textarea{
     margin-left: 1em;
     width: 90%;
@@ -188,6 +190,7 @@ img {
 }
 .address-area input {
     display: block;
+    width: 80%;
     font-size: 16px;
     color: #9D9D9D;
     border: 2px solid #DCDCDC;

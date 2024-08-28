@@ -31,18 +31,14 @@ export class MycartComponent implements OnInit {
     }
   ];
 
-  constructor( private cartServices: CartService) {}
+  constructor( private cartServices: CartService) {
+
+    
+  }
 
   ngOnInit(): void {
 
-    this.cartServices.getMyCartItems().subscribe({
-      next: (res:any) => {
-        console.log(res);
-      },
-      error: (err: any) => {
-        console.log(err);
-      }
-    })
+  
   }
 
   increment() {
