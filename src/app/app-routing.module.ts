@@ -7,6 +7,8 @@ import { ProfileDetailsComponent } from './component/profile-details/profile-det
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { OrderComponent } from './component/order/order.component';
+import { PleaseLoginComponent } from './component/please-login/please-login.component';
+import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
 
 const routes: Routes = [
   {
@@ -23,9 +25,12 @@ const routes: Routes = [
   {
     path:'profile',
     component:ProfileDetailsComponent},
-    {path: 'forgotpassword',
+  {
+    path: 'forgotpassword',
     component: ForgotPasswordComponent
-  }
+  },
+  { path: 'wishlist-login', component: PleaseLoginComponent },
+  { path: 'order-placed', component: OrderPlacedComponent}
 ];
 
 @NgModule({

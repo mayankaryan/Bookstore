@@ -1,10 +1,11 @@
 <div class="navbar-container">
     <div class="nav">
-        <img class="bookstore-icon" src="../../../assets/icons/education.svg">
-        <p class="bookstore-text">BookStore</p>
+      
+        <img class="bookstore-icon" src="../../../assets/icons/education.svg" [routerLink]="['/']">
+            <p class="bookstore-text">BookStore</p>
         <div class="search">
             <img src="../../../assets/icons/search_24dp_9D9D9D_FILL0_wght400_GRAD0_opsz24.svg">
-            <input type="text" class="search-box" placeholder="search..">
+            <input matInput [(ngModel)]="searchText" class="search-box" placeholder="search.." (ngModelChange)="Search()">
         </div>
         <div class="cart-profile">
             <div class="line-1"></div>
@@ -13,7 +14,7 @@
                 <p>Profile</p>
             </div>
             <div class="line-2"></div>
-            <div class="cart">
+            <div class="cart" [routerLink]="['/mycart']">
                 <img src="../../../assets/icons/supermarket.svg">
                 <p>Cart</p>
             </div>
