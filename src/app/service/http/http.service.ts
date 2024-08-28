@@ -10,6 +10,7 @@ export class HttpService {
 
 
   GetApiAuthCall(url:string,token:boolean, headers: any) {
+    console.log("url",this.BaseUrl + url);
     return this.httpClient.get( this.BaseUrl + url, token&&headers)
   }
  
