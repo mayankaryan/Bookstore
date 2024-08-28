@@ -13,10 +13,14 @@ import { MaterialModule } from './moudle/material/material.module';
 import { BookwidgetComponent } from './component/bookwidget/bookwidget.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
+import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
+import { PleaseLoginComponent } from './component/please-login/please-login.component';
+import { LoginSignupComponent } from './component/login-signup/login-signup.component'
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { OrderComponent } from './component/order/order.component';
-import {MatIconModule} from '@angular/material/icon';
 import { ProfileDetailsComponent } from './component/profile-details/profile-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,9 @@ import { ProfileDetailsComponent } from './component/profile-details/profile-det
     BookdetailsComponent,
     BookwidgetComponent,
     ForgotPasswordComponent,
+    OrderPlacedComponent,
+    PleaseLoginComponent,
+    LoginSignupComponent,
     ProfileDetailsComponent,
     WishlistComponent,
     OrderComponent,
