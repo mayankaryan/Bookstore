@@ -41,3 +41,30 @@ mat-form-field{
     margin-top: 20px;
 }
 
+.pagination{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 450px;
+}
+.nav_btn{
+    background-color: white;
+    border: 1px solid #E2E2E2;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+.pg_num{
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    width:30px ;
+    height: 30px;
+    padding: 5px 10px;
+}
+
+.active-page {
+    background-color: rgb(150, 30, 30); /* Red background color for the active page */
+    color: white; /* Optional: Change text color to white */
+    
+  }

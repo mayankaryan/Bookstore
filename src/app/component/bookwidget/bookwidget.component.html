@@ -1,7 +1,7 @@
 <div class="book_widget">
     <div class="img_div">
        <img [src]="book.book_url" alt="book 12" >
-       <div class="view_hover" [routerLink]="['/book']" >
+       <div class="view_hover" [routerLink]="['/book']" (click)="datatransfer(book)">
          <p>QUICK VIEW</p>
        </div>
        <div *ngIf="book.quantity==2" class="out_of_stock">
