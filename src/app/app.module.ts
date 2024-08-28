@@ -14,7 +14,8 @@ import { BookwidgetComponent } from './component/bookwidget/bookwidget.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
-import { SearchPipe } from './pipe/search.pipe'
+import { WishlistComponent } from './component/wishlist/wishlist.component';
+import { OrderComponent } from './component/order/order.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SearchPipe } from './pipe/search.pipe'
     BookdetailsComponent,
     BookwidgetComponent,
     ForgotPasswordComponent,
-    SearchPipe
+    WishlistComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
