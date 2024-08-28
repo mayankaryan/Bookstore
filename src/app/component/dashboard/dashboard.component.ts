@@ -29,6 +29,9 @@ export class DashboardComponent {
   totalPages:number=0;
   selectedSortOption: string = 'relevance'; 
   constructor(private httpservice:HttpService,private dataservice:DataService) { 
+   
+  }
+  ngOnInit(){
     this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
       next:(res:any)=>{
         this.booklist=res.result;
