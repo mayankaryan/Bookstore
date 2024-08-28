@@ -20,6 +20,7 @@ import { LoginSignupComponent } from './component/login-signup/login-signup.comp
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { OrderComponent } from './component/order/order.component';
 import { ProfileDetailsComponent } from './component/profile-details/profile-details.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProfileDetailsComponent } from './component/profile-details/profile-det
     ProfileDetailsComponent,
     WishlistComponent,
     OrderComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

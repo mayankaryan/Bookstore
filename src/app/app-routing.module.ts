@@ -7,6 +7,9 @@ import { ProfileDetailsComponent } from './component/profile-details/profile-det
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { OrderComponent } from './component/order/order.component';
+import { PleaseLoginComponent } from './component/please-login/please-login.component';
+import { LoginComponent } from './component/login/login.component';
+import { LoginSignupComponent } from './component/login-signup/login-signup.component';
 
 const routes: Routes = [
   {
@@ -25,6 +28,14 @@ const routes: Routes = [
     component:ProfileDetailsComponent},
     {path: 'forgotpassword',
     component: ForgotPasswordComponent
+  },
+  {
+    path:'wishlist-login',
+    component:PleaseLoginComponent
+  },
+  {
+    path:'login-signup',
+    component:LoginSignupComponent
   }
 ];
 
