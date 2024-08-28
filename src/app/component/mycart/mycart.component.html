@@ -54,16 +54,18 @@
         </div>
         <div class="customer-address">
             <mat-radio-group [(ngModel)]="custAddress">
-                <div>
-                    <mat-radio-button value="work"><span id="add-title">1. Work</span></mat-radio-button>
+                <div *ngFor="let item of Address; let i = index">
+                    <mat-radio-button value="{{item.type}}">
+                        <span id="add-title">{{i+1}}. {{item.type}} </span>
+                        <span id="add-edit" *ngIf="custAddress==item.type">Edit</span>
+                    </mat-radio-button>
                     <div class="address">
                         <p>Address</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit.
-                            Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos,
-                            necessitatibus!elit. Dignissimos, necessitatibus!elit. Dignissimos, necessitatibus!</p>
+                        <p>{{item.address}}</p>
                     </div>
                 </div>
                 
+                <p>{{custAddress}}</p>
             </mat-radio-group>
         </div>
         <div class="btn-cnt">

@@ -120,6 +120,21 @@ img {
     padding: 5px 8px;
     border-radius: 1px;
 }
+#add-edit {
+    margin-left: 2em;
+    font-size: 16px;
+    font-weight: 800; 
+    color: #A03037;
+}
+::ng-deep .mat-mdc-radio-button.mat-accent {
+    --mdc-radio-selected-focus-icon-color: #A03037;
+    --mdc-radio-selected-hover-icon-color: #A03037;
+    --mdc-radio-selected-icon-color: #A03037;
+    --mdc-radio-selected-pressed-icon-color: #A03037;
+    --mat-radio-checked-ripple-color: #A03037;
+}
+
+
 .customer-detail div{
     display: inline-block;
     width: 50%;

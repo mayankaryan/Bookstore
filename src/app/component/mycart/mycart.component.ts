@@ -10,6 +10,20 @@ export class MycartComponent implements OnInit {
   cartItems: any;
   custAddress: any;
   bookCount: number = 0;
+  Address: any = [
+    {
+      "type": "Work",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit"
+    },
+    {
+      "type": "Home",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit"
+    },
+    {
+      "type": "Other",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit"
+    }
+  ];
 
   constructor( private cartServices: CartService) {}
 
