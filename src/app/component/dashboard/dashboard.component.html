@@ -14,8 +14,8 @@
      </div>
     </div>
     <div class="books">
-       <div *ngFor="let book of filteredBookList | search:searchText">
-        <app-bookwidget [book]="book"></app-bookwidget>
+       <div *ngFor="let i of filteredBookList | search:searchText">
+        <app-bookwidget [book]="i"></app-bookwidget>
        </div>
     </div>
 </div>
