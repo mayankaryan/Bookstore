@@ -9,13 +9,10 @@ export class CartService {
 
   constructor( private httpService: HttpService) { }
 
-<<<<<<< HEAD
   getMyCartItems():any {
     // const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDkzY2VhZTVjNDAwMGVkMGVkMDIiLCJpYXQiOjE3MjQ3NDQzMzMsImV4cCI6MTcyNDgzMDczM30.IRUX3siidMP771HWoDiho4nKlX_mLdT4WtoV4P95zTM";
     // const headers = new HttpHeaders({'Authorization': `${accessToken}`});
     // return this.httpService.GetApiAuthCall('bookstore_user/get_cart_items' , headers );
   }
-=======
   
->>>>>>> c67f1cebc4f9fb295dfc3a68add86ea82bd00476
 }
