@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
+<<<<<<< HEAD
+import { HttpService } from 'src/app/service/http/http.service';
+
+=======
+>>>>>>> f7e0dc37edddb5ab8e75928ef3dd0b027c531f42
 
 @Component({
   selector: 'app-mycart',
