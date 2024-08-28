@@ -9,9 +9,8 @@ export class HttpService {
   constructor(private httpClient: HttpClient) { }
 
 
-  GetApiAuthCall(url:string, headers: any) {
-    console.log(headers);
-    return this.httpClient.get( this.BaseUrl + url, headers)
+  GetApiAuthCall(url:string,token:boolean, headers: any) {
+    return this.httpClient.get( this.BaseUrl + url, token&&headers)
   }
  
  GetApiCall(url:string){
