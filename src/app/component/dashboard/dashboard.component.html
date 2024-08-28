@@ -1,4 +1,5 @@
-<div>
+<app-navbar></app-navbar>
+<div class="content">
     <div class="tool_bar">
      <h2>Books <span class="count_span">({{ booklist.length }}  items)</span></h2>
 
@@ -13,8 +14,9 @@
      </div>
     </div>
     <div class="books">
-       <div *ngFor="let book of filteredBookList">
+       <div *ngFor="let book of filteredBookList | search:searchText">
         <app-bookwidget [book]="book"></app-bookwidget>
        </div>
     </div>
 </div>
+<app-footer></app-footer>
