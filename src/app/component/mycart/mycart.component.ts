@@ -12,18 +12,35 @@ export class MycartComponent implements OnInit {
   cartItems: any;
   custAddress: any;
   bookCount: number = 0;
+  Address: any = [
+    {
+      "type": "Work",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
+      "region": "koramangala",
+      "state": "Karnataka"
+    },
+    {
+      "type": "Home",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
+      "region": "koramangala",
+      "state": "Karnataka"
+    },
+    {
+      "type": "Other",
+      "address": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, necessitatibus!elit",
+      "region": "koramangala",
+      "state": "Karnataka"
+    }
+  ];
 
-  constructor( private cartServices: CartService) {}
+  constructor( private cartServices: CartService) {
+
+    
+  }
 
   ngOnInit(): void {
-    this.cartServices.getMyCartItems().subscribe({
-      next: (res:any) => {
-        console.log(res);
-      },
-      error: (err: any) => {
-        console.log(err);
-      }
-    })
+
+  
   }
 
   increment() {
