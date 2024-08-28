@@ -1,0 +1,80 @@
+.main-cnt {
+    width: 70%;
+    margin-left: 12%;
+    // border: 1px solid black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.route-cnt {
+    font-weight: 500;
+    margin: 1em 0;
+}
+.home-span {
+    color: #9D9D9D;
+}
+
+.wishlist-cnt {
+    border: 1px solid #DCDCDC;
+    padding-top: 1em;
+}
+.wishlist-heading {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-bottom: 1em;
+}
+.wishlist-heading p {
+    // margin: auto;
+    font-size: larger;
+    font-weight: 700;
+    margin-left: 1em;
+}
+
+.wishlist-content {
+    display: flex;
+    padding: 3em 2em;
+    // align-items: flex-start;
+    border-bottom: 1px solid #DCDCDC;
+    justify-content: space-between;
+}
+.wishlist-content div {
+    display: flex;
+}
+
+img {
+    max-width: 65px;
+    max-height: 85px;
+    margin-right: 1em;
+}
+.book-detials {
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-start;
+    // padding-right: 70%;
+}
+.book-detials p {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+.book-detials span {
+    font-size: 14px;
+    color: #9D9D9D;
+    text-decoration: line-through;
+}
+#auther-name {
+    color: #9D9D9D;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.delete-btn {
+    display: flex;
+    align-items: flex-start;
+}
+.delete-btn button {
+    border: none;
+    background: none;
+    color: #9D9D9D;
+    cursor: pointer;
+}

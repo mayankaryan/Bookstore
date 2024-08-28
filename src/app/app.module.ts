@@ -12,10 +12,9 @@ import { BookdetailsComponent } from './component/bookdetails/bookdetails.compon
 import { MaterialModule } from './moudle/material/material.module';
 import { BookwidgetComponent } from './component/bookwidget/bookwidget.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
 import { FooterComponent } from './component/footer/footer.component';
+import { WishlistComponent } from './component/wishlist/wishlist.component';
+import { OrderComponent } from './component/order/order.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ProfileDetailsComponent } from './component/profile-details/profile-details.component';
 @NgModule({
@@ -30,6 +29,8 @@ import { ProfileDetailsComponent } from './component/profile-details/profile-det
     BookwidgetComponent,
     ForgotPasswordComponent,
     ProfileDetailsComponent,
+    WishlistComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
