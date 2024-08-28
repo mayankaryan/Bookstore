@@ -1,0 +1,107 @@
+
+.book_details_div{
+   
+}
+.book_title{
+    margin-bottom: 0px;
+}
+span{
+    color: #878787;
+}
+.details_widget{
+    width: 525px;
+}
+mat-form-field{
+    width:500px ;
+    margin-top: 5px;
+    background-color: #F5F5F5;
+}
+
+.submit_btn{
+    background-color: #3371B5;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-size: 14px;
+    margin-left: 400px;
+}
+.customer_feedback{
+    background-color: #F5F5F5 !important;
+    padding:14px 15px;
+    border-radius: 5px;
+}
+::ng-deep .mdc-text-field--outlined {
+    --mdc-outlined-text-field-outline-color: white;}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c1205077789-0.mdc-text-field--outlined{
+    background-color: white !important;
+}
+
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-flex {
+        background-color: white !important;
+      }
+.book_rating{
+    color: #ffffff !important;
+    background-color: #388E3C;
+    width: 30px;
+    height: 16px;
+    padding: 2px 4px;
+    margin-right: 5px;
+
+}
+.tool{
+    margin-top: 10px;
+    margin-left: 90px;
+}
+.offer{
+    font-weight: 300 !important;
+    text-decoration:line-through;
+}
+.bookdetails_page_div{
+    display: flex;
+    margin: 20px 170px;
+}
+.img_sml{
+    border:1px solid #D1D1D1;
+    padding: 8px 10px;
+    margin-right:2px ;
+    margin-top: 2px;
+
+}
+.book_images{
+    display: flex;
+    padding-right: 30px;
+}
+.book_image_main{
+    // width:332px ;
+    // height:413px;
+    padding: 10px 15px;
+   border: 1px solid #D1D1D1;
+}
+.book_primary_details{
+    border-bottom:1px solid #D1D1D1;
+}
+.book_details{
+    border-bottom: 1px solid #D1D1D1;
+    padding-bottom: 30px;
+}
+
+.wishlist_btn{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 13px;
+    margin-left: 20px;
+    margin-top: 4px;
+
+}
+.add_bag_btn{
+    background-color: #A03037;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 9px 13px;
+    margin-top: 4px;
+}
