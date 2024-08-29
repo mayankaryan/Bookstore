@@ -28,30 +28,39 @@ export class DashboardComponent {
   itemsPerPage:number=8;
   totalPages:number=0;
   selectedSortOption: string = 'relevance'; 
+  isLoading:boolean = true;
   constructor(private httpservice:HttpService,private dataservice:DataService) { 
    
   }
   ngOnInit(){
-    this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
-      next:(res:any)=>{
-        this.booklist=res.result;
-        console.log(this.booklist);
-        this.booklist = this.booklist.map((note: any) => ({
-          ...note,
-          book_url: this.getRandombookimg()
-        }));
-        this.filteredBookList=this.booklist;
-        this.updatePagination();
-        console.log("filtered",this.booklist);
-        console.log(res.result[0]);
-      },error:(err:any)=>{
-        console.log(err);
-      }
-    })
-    this.dataservice.currentMessage.subscribe((message) => {
-      this.searchText =message ;
-  });
+     this.fetchBook();
   }
+
+  fetchBook(){
+     setTimeout(()=>{
+      this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
+        next:(res:any)=>{
+          this.booklist=res.result;
+          console.log(this.booklist);
+          this.booklist = this.booklist.map((note: any) => ({
+            ...note,
+            book_url: this.getRandombookimg()
+          }));
+          this.filteredBookList=this.booklist;
+          this.updatePagination();
+          console.log("filtered",this.booklist);
+          console.log(res.result[0]);
+        },error:(err:any)=>{
+          console.log(err);
+        }
+      })
+      this.dataservice.currentMessage.subscribe((message) => {
+        this.searchText =message ;
+    });
+    this.isLoading = false;
+     },1000);
+  }
+  
   length(): number {
     return this.booklist.length;
   }

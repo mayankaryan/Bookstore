@@ -15,4 +15,10 @@ export class WishlistService {
     const myHeaders = new HttpHeaders().set('x-access-token', (accessToken) ? accessToken : "" );
     return this.httpService.GetApiAuthCall('bookstore_user/get_wishlist_items', true, {headers: myHeaders})
   }
+
+  getorderslist(){
+    const accesstoken=localStorage.getItem('admin-token');
+    const myheaders=new HttpHeaders().set('x-access-token',accesstoken?accesstoken:'');
+    return this.httpService.GetApiAuthCall('/bookstore_user/admin/get/order',true,{headers:myheaders});
+  }
 }

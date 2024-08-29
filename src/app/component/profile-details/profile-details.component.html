@@ -2,32 +2,32 @@
 
 <div class="profile-container">
     <div class="home-profile">
-        <span class="home-txt">Home/</span>
+        <span class="home-txt" [routerLink]="['/']" style="cursor: pointer;">Home/</span>
         <span class="Profile-txt">Profile</span>
     </div>
     <br>
     <div class="personal-edit">
         <span class="personal-txt">Personal Details</span>
-        <span class="edit-txt">Edit</span>
+        <span class="edit-txt" (click)="toggleEditMode1()" [ngClass]="{'save-button':isEditMode,'edit-button':isEditMode}">{{isEditMode? 'save':'Edit'}}</span>
     </div>
     <br>
     <div class="personal-form-contatiner">
         <form [formGroup]="personal_form">
             <div class="name-field">
                 <label>Full Name</label><br>
-                <input type="text" class="input" formControlName="name">
+                <input type="text" class="input" formControlName="name" [disabled]="!isEditMode" [(ngModel)]="user.name">
             </div>
             <div class="email-field">
                 <label>Email Id</label><br>
-                <input type="email" class="input" formControlName="email">
+                <input type="email" class="input" formControlName="email" [disabled]="!isEditMode" [(ngModel)]="user.email">
             </div>
             <div class="pwd-field">
                 <label>Password</label><br>
-                <input type="password" class="input" formControlName="pwd">
+                <input type="password" class="input" formControlName="pwd" [disabled]="!isEditMode" [(ngModel)]="user.password">
             </div>
             <div class="mobile-field">
                 <label>Mobile Number</label><br>
-                <input type="number" class="input" formControlName="mob">
+                <input type="number" class="input" formControlName="mob" [disabled]="!isEditMode" [(ngModel)]="user.phone">
             </div>
         </form>
     </div>
@@ -35,38 +35,41 @@
     <div class="address-form-conatainer">
         <div class="address-details">
             <p class="address-header">Address Details</p>
-            <button>Add New Address</button>
+            <button (click)="addnewaddress()">Add New Address</button>
         </div>
         <br>
-        <div class="work-edit">
-            <span class="work-txt">1.WORK</span>
-            <span class="edit-txt">Edit</span>
+        <div *ngFor="let addre of address; let i=index">
+            <div class="work-edit">
+                <span class="work-txt">{{i+1}}.{{addre.type.toUpperCase()}}</span>
+                <span class="edit-txt" (click)="toggleEditMode2()" [ngClass]="{'save-button1':isEditMode,'edit-button':isEditMode}"> 
+                    {{isEditMode? 'save':'Edit'}}</span>
+            </div>
+            <form [formGroup]="address_form">
+                <div class="address-field">
+                    <label>Address</label><br>
+                    <textarea type="text" class="address-input" formControlName="address" [disabled]="!isEditMode" [(ngModel)]="addre.Address"></textarea>
+                </div>
+                <div class="state-city">
+                    <div class="city">
+                        <label>City/Town</label>
+                        <input type="text" formControlName="city" [disabled]="!isEditMode" [(ngModel)]="addre.city">
+                    </div>
+                    <div class="state">
+                        <label>State</label>
+                        <input type="text" formControlName="state" [disabled]="!isEditMode" [(ngModel)]="addre.state">
+                    </div>
+                </div>
+                <div class="type-field">
+                    <mat-label>Type</mat-label>
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="addre.type" (change)="onAddressTypeChange(i,$event.value)">
+                    <mat-radio-button value="Home">Home</mat-radio-button>
+                    <mat-radio-button value="Work" class="rb1">Work</mat-radio-button>
+                    <mat-radio-button valur="Other" class="rb1">Other</mat-radio-button>
+                </mat-radio-group>
+                </div>
+            </form>
         </div>
-        <form [formGroup]="address_form">
-            <div class="address-field">
-                <label>Address</label><br>
-                <textarea type="text" class="address-input" formControlName="address"></textarea>
-            </div>
-            <div class="state-city">
-                <div class="city">
-                    <label>City/Town</label>
-                    <input type="text" formControlName="city">
-                </div>
-                <div class="state">
-                    <label>State</label>
-                    <input type="text" formControlName="state">
-                </div>
-            </div>
-            <div class="type-field">
-                <label>Type</label>
-                <input type="radio" formControlName="type" name="type" value="home">
-                <label>Home</label>
-                <input type="radio" formControlName="type" name="type" value="work">
-                <label>Work</label>
-                <input type="radio" formControlName="type" name="type" value="other">
-                <label>Other</label>
-            </div>
-        </form>
+      
     </div>
 
 </div>

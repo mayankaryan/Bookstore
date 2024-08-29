@@ -11,4 +11,7 @@ export class LoginService {
   postLogin(data: any) {
     return this.httpService.PostApiCall('bookstore_user/login',data);
   }
+  postLoginadmin(data:any){
+    return this.httpService.PostApiCall('bookstore_user/admin/login',data);
+  }
 }

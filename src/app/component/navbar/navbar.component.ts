@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Route, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
-import { error } from 'winston';
+
 
 @Component({
   selector: 'app-navbar',
@@ -23,9 +23,12 @@ export class NavbarComponent implements OnInit {
       }
     });
 
-    if(localStorage.getItem('access-token')) {
-      this.isLoggedIn = true;
-    } 
+    if(localStorage.getItem("access-token")){
+      this.isLoggedIn=true;
+    }
+    else{
+      this.isLoggedIn=false;
+    }
 
   } 
   Search() {
@@ -36,10 +39,6 @@ export class NavbarComponent implements OnInit {
   isLoggedIn=false; 
   showdialog=false;
 
-  logoutUser() {
-    localStorage.clear();
-    this.router.navigate(['']);
-  }
   openWishlist(){
     this.router.navigate(['/wishlist']);
     this.showdialog=false;
@@ -58,8 +57,9 @@ export class NavbarComponent implements OnInit {
     this.showdialog=!this.showdialog;
   }
 
-  logout=()=>{
-
+  logout(){
+    localStorage.removeItem("access-token");
+    this.router.navigate(['/'])
   }
 
   openNoWishlist(){
@@ -72,15 +72,7 @@ export class NavbarComponent implements OnInit {
     this.showdialog=false;
   }
 
-    
-  
-  
-  
-
 
 
 }
 
-function onWindowScroll() {
-  throw new Error('Function not implemented.');
-}
