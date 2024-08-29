@@ -11,17 +11,29 @@
 
             <div *ngIf="isLoginVisible">
 
+<<<<<<< HEAD
                 <form >
                     <label for="login-email">Email Id</label><br>
                     <input type="text"  name="email" required><br>
+=======
+                <form [formGroup]="loginObj" >
+
+                    <label for="login-email" > Email Id</label><br>
+                    <input type="text"  name="email" formControlName="email" ><br>
+                    <div class="ng-validators" *ngIf="loginObj.get('email')?.touched">
+                        <span class="ng-validators" *ngIf="loginObj.get('email')?.hasError('required')">Email is required</span>
+                        <span class="ng-validators" *ngIf="loginObj.get('email')?.hasError('email')">invalid email address</span>
+                    </div>
+
+>>>>>>> b0fac91ad4e25a6961f903333d2ce063f8fc49c5
                     <label for="login-password">Password </label>
-                    <input type="password" id="login-password" name="password" required><br>
+                    <input type="password" id="login-password" name="password" formControlName="password"><br>
+                    <div class="ng-validators" *ngIf="loginObj.get('password')?.touched">
+                        <span class="ng-validators" *ngIf="loginObj.get('password')?.hasError('required')">password is required</span>
+                    </div>
                     <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
 
-
-
-
-                    <button style="background-color: brown;" class="l-button">LOGIN</button>
+                    <button style="background-color: brown;" class="l-button" [disabled]="loginObj.invalid" (click)="onLogin()">LOGIN</button>
                     <p>--------------------<b>OR</b>---------------------</p>
                     <div class="FG-btn">
                         <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>

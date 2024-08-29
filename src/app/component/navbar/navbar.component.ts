@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Route, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
-
+import { error } from 'winston';
 
 @Component({
   selector: 'app-navbar',
@@ -24,6 +24,11 @@ export class NavbarComponent implements OnInit {
         console.log(err);
       }
     })
+
+    if(localStorage.getItem('access-token')) {
+      this.isLoggedIn = true;
+    } 
+
   } 
   Search() {
     console.log(this.searchText);
@@ -33,6 +38,10 @@ export class NavbarComponent implements OnInit {
   isLoggedIn=false; 
   showdialog=false;
 
+  logoutUser() {
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
   openWishlist(){
     this.router.navigate(['/wishlist']);
     this.showdialog=false;
@@ -64,8 +73,16 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login-signup']);
     this.showdialog=false;
   }
+
+    
+  
+  
   
 
 
 
+}
+
+function onWindowScroll() {
+  throw new Error('Function not implemented.');
 }
