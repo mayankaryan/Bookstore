@@ -15,7 +15,7 @@ export class CartService {
   constructor( private httpService: HttpService) { }
 
   getMyCartItem () {
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDkzY2VhZTVjNDAwMGVkMGVkMDIiLCJpYXQiOjE3MjQ4Nzg4NjEsImV4cCI6MTcyNDk2NTI2MX0.52YAsgTVJ-lSr4ruUb1_SGWo81ZcjdAhcuEbNEkDZrA";
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDkzY2VhZTVjNDAwMGVkMGVkMDIiLCJpYXQiOjE3MjQ5MDc1NDMsImV4cCI6MTcyNDk5Mzk0M30.IkwRyC6takQBkCzdQ9vmX8DR73o9H2yHzXicP0lWyvE";
     const myheaders = new HttpHeaders().set('x-access-token', accessToken);
     return this.httpService.GetApiAuthCall('bookstore_user/get_cart_items',true , {headers: myheaders});
   }
