@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../../service/login.service';
+import { WishlistService } from '../../service/wishlist.service';
 
 @Component({
   selector: 'app-order',
@@ -6,5 +8,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent {
+  orderlist:any[]=[];
+  isLoading:boolean=true;
+  
+  constructor(private loginservices:LoginService,private wishlistservice:WishlistService) { }
+
+  ngOnInit() {
+    this.loginservices.postLoginadmin({"email": "admin@test.com",
+  "password": "test@123"}).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        localStorage.setItem('admin-token',res.result.accessToken);
+      },error:(err:any)=>{
+        console.log(err);
+      }
+    });
+    setTimeout(()=>{
+      this.fetchOrder();
+    },)
+
+  }
+
+  fetchOrder(){
+    setTimeout(()=>{
+      this.wishlistservice.getorderslist().subscribe({
+        next:(res:any)=>{
+          console.log(res);
+          this.orderlist=res.result.splice(0,50);
+  
+        },error:(err:any)=>{
+          console.log(err);
+        }
+      });
+      this.isLoading=false;
+     },2000);
+  }
 
 }

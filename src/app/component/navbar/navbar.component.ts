@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     localStorage.removeItem("access-token");
-    this.router.navigate(['/login-signup'])
+    this.router.navigate(['/'])
   }
 
   openNoWishlist(){
