@@ -39,7 +39,7 @@
                     <mat-icon>favorite_outline</mat-icon>
                     <p>My Wishlist</p>
                 </div>
-                <button mat-button class="logout-btn">Logout</button>
+                <button mat-button class="logout-btn" (click)="logoutUser()">Logout</button>
             </div>
             <div class="dialog-not-login" *ngIf="!isLoggedIn">
             <div class="welcome-login-signup">

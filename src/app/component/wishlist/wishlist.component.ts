@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { WishlistService } from 'src/app/service/wishlist.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class WishlistComponent {
   wishList: any[] = [];
   wishlistLen : number = 0;
 
-  constructor ( private wishlistService: WishlistService ) {
+  constructor ( private wishlistService: WishlistService, private router: Router ) {
 
     this.wishlistService.getServiceWishList().subscribe({
       next: (res: any) => {
@@ -22,6 +23,7 @@ export class WishlistComponent {
         this.wishlistLen = this.wishList.length;
       },
       error: (err: any) => {
+        this.router.navigate(['/wishlist-login']);
         console.log(err);
       }
     })
