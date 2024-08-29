@@ -11,7 +11,7 @@ export class WishlistService {
 
   getServiceWishList( ) {
     console.log('wishlist service')
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDkzY2VhZTVjNDAwMGVkMGVkMDIiLCJpYXQiOjE3MjQ5MDc1NDMsImV4cCI6MTcyNDk5Mzk0M30.IkwRyC6takQBkCzdQ9vmX8DR73o9H2yHzXicP0lWyvE";
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDkzY2VhZTVjNDAwMGVkMGVkMDIiLCJpYXQiOjE3MjQ5MTM5MDUsImV4cCI6MTcyNTAwMDMwNX0.z0piVo5pww8R35LPoPo6NXM-K7GJXG4Y6Tx5x45tL2I";
     const myHeaders = new HttpHeaders().set('x-access-token', accessToken);
     return this.httpService.GetApiAuthCall('bookstore_user/get_wishlist_items', true, {headers: myHeaders})
   }
