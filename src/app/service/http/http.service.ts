@@ -17,4 +17,8 @@ export class HttpService {
   console.log(this.BaseUrl+url);
   return this.httpClient.get(this.BaseUrl+url);
  }
+
+ PostApiCall (url: string, data: any) {
+  return this.httpClient.post(this.BaseUrl+url, data);
+ }
 }
