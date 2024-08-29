@@ -7,7 +7,7 @@
     background-color: #9c9a9a;
 }
 .container{
-    height:60%;
+    height:66%;
     width: 40%;
     display:flex;
     // flex-direction: column;
@@ -24,7 +24,6 @@
 }
 .container p{
     margin-top: 10px;
-    
 }
 
 .first-container{
@@ -125,4 +124,8 @@ a{
 
 label{
     font-weight: 550;
+}
+
+.ng-validators {
+    color: red;
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControlName, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/service/user/user.service';
+import { FormControl, FormGroup, Validators,FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-login-signup',
@@ -10,25 +12,13 @@ import { UserService } from 'src/app/service/user/user.service';
 export class LoginSignupComponent implements OnInit {
   isLoginVisible = true;
 
-  showLogin() {
-    this.isLoginVisible = true;
-  }
-
-  showSignup() {
-    this.isLoginVisible = false;
-  }
-
   login!: FormGroup;
   signup!: FormGroup;
 
-  constructor(private fb: FormBuilder,private userservive:UserService) {
+  constructor(private fb:FormBuilder,private userservive:UserService,private loginService: LoginService,private router: Router) {
 
   }
   ngOnInit() {
-    this.login = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
     this.signup = this.fb.group({
       fullname: ['', Validators.required],
       email: ['', [Validators.required, Validators.required]],
@@ -60,5 +50,35 @@ export class LoginSignupComponent implements OnInit {
   }
 
 
+  loginObj: FormGroup = new FormGroup({
+    email: new FormControl('',[ Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
+  });
 
+  onLogin() {
+    console.log(this.loginObj.value);
+    this.loginService.postLogin(
+      {
+        "email": this.loginObj.value.email,
+        "password": this.loginObj.value.password,
+      }).subscribe({
+        next: (res: any) => {
+          console.log('login', res);
+          localStorage.setItem('access-token', res.result.accessToken);
+          this.router.navigate([''])
+        },
+        error: (err: any) => {
+          console.log(err);
+        }
+      })
+
+  }
+
+  showLogin() {
+    this.isLoginVisible = true;
+  }
+
+  showSignup() {
+    this.isLoginVisible = false;
+  }
 }

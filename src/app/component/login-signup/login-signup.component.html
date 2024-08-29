@@ -9,39 +9,73 @@
                 <button (click)="showSignup()" [disabled]="!isLoginVisible">SIGNUP</button>
             </div>
 
-            <div *ngIf="isLoginVisible" [formGroup]="login">
-                <label for="login-email">Email Id</label><br>
-                <input type="text" formControlName="email" required><br>
-                <label for="login-password">Password </label>
-                <input type="password" id="login-password" formControlName="password" required><br>
-                <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
+            <div *ngIf="isLoginVisible">
 
+                <form [formGroup]="loginObj">
 
+                    <label for="login-email"> Email Id</label><br>
+                    <input type="text" name="email" formControlName="email"><br>
+                    <div class="ng-validators" *ngIf="loginObj.get('email')?.touched">
+                        <span class="ng-validators" *ngIf="loginObj.get('email')?.hasError('required')">Email is
+                            required</span>
+                        <span class="ng-validators" *ngIf="loginObj.get('email')?.hasError('email')">invalid email
+                            address</span>
+                    </div>
 
+                    <label for="login-password">Password </label>
+                    <input type="password" id="login-password" name="password" formControlName="password"><br>
+                    <div class="ng-validators" *ngIf="loginObj.get('password')?.touched">
+                        <span class="ng-validators" *ngIf="loginObj.get('password')?.hasError('required')">password is
+                            required</span>
+                    </div>
+                    <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
 
-                <button style="background-color: brown;" class="l-button">LOGIN</button>
-                <p>--------------------<b>OR</b>---------------------</p>
-                <div class="FG-btn">
-                    <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>
-                    <button style="background-color: #F5F5F5; border-color: #d2c4c4;" class="btn3">GOOGLE</button>
-                </div>
-
+                    <button style="background-color: brown;" class="l-button" [disabled]="loginObj.invalid"
+                        (click)="onLogin()">LOGIN</button>
+                    <p>--------------------<b>OR</b>---------------------</p>
+                    <div class="FG-btn">
+                        <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>
+                        <button style="background-color: #F5F5F5; border-color: #d2c4c4;" class="btn3">GOOGLE</button>
+                    </div>
+                </form>
             </div>
 
-            <form style="align-items:center ">
-            <div *ngIf="!isLoginVisible" [formGroup]="signup">
+            <form style="align-items:center;">
+                <div *ngIf="!isLoginVisible" [formGroup]="signup">
                     <label for="signup-username">FullName</label>
                     <input type="text" id="FullName" formControlName="fullname" required><br>
+                    <div class="ng-validators" *ngIf="signup.get('fullname')?.touched">
+                        <span class="ng-validators" *ngIf="signup.get('fullname')?.hasError('required')">FullName is
+                            required</span>
+                    </div>
                     <label for="login-email">Email Id</label>
                     <input type="email" id="email" formControlName="email" required><br>
+                    <div class="ng-validators" *ngIf="signup.get('email')?.touched">
+                        <span class="ng-validators" *ngIf="signup.get('email')?.hasError('required')">Email is
+                            required</span>
+                        <span class="ng-validators" *ngIf="signup.get('email')?.hasError('email')">invalid email
+                            address</span>
+                    </div>
                     <label for="login-password">Password </label>
                     <input type="password" id="login-password" formControlName="password" required><br>
+                    <div class="ng-validators" *ngIf="signup.get('password')?.touched">
+                        <span class="ng-validators" *ngIf="signup.get('password')?.hasError('required')">Enter a valid
+                            password[Password should be 8 characters]</span>
+                    </div>
+
                     <label for="Mobile Number">Mobile Number</label>
                     <input type="number" id="mobileno" formControlName="mobileno">
-                    <button style="background-color: #A03037; color: white;" class="s-btn" (click)="signUp()">SIGNUP</button>
-                
-            </div>
-        </form>
+                    <div class="ng-validators" *ngIf="signup.get('mobileno')?.touched">
+                        <span class="ng-validators" *ngIf="signup.get('mobileno')?.hasError('required')">Enter a
+                            valid mobile number
+                        </span>
+                    </div>
+
+                    <button style="background-color: #A03037; color: white;" class="s-btn"
+                        (click)="signUp()">SIGNUP</button>
+
+                </div>
+            </form>
         </div>
 
     </div>

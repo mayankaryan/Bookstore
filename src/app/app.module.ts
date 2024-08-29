@@ -11,7 +11,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BookdetailsComponent } from './component/bookdetails/bookdetails.component';
 import { MaterialModule } from './moudle/material/material.module';
 import { BookwidgetComponent } from './component/bookwidget/bookwidget.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
@@ -21,6 +21,7 @@ import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { OrderComponent } from './component/order/order.component';
 import { ProfileDetailsComponent } from './component/profile-details/profile-details.component';
 import { SearchPipe } from './pipe/search.pipe';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { SearchPipe } from './pipe/search.pipe';
     MatIconModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

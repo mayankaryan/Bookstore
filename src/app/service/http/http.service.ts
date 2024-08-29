@@ -22,4 +22,7 @@ postApiCall(url:any,data:any,token:boolean,headers:any){
   return this.httpClient.post(this.BaseUrl+url,data,token&&headers);
 }
 
+ PostApiCall (url: string, data: any) {
+  return this.httpClient.post(this.BaseUrl+url, data);
+ }
 }

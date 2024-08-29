@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
       }
     })
 
-    if(localStorage.getItem("access_token")){
+    if(localStorage.getItem("access-token")){
       this.isLoggedIn=true;
     }
     else{
@@ -59,8 +59,9 @@ export class NavbarComponent implements OnInit {
     this.showdialog=!this.showdialog;
   }
 
-  logout=()=>{
-
+  logout(){
+    localStorage.removeItem("access-token");
+    this.router.navigate(['/login-signup'])
   }
 
   openNoWishlist(){
