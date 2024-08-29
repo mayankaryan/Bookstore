@@ -25,6 +25,13 @@ export class NavbarComponent implements OnInit {
       }
     })
 
+    if(localStorage.getItem("access_token")){
+      this.isLoggedIn=true;
+    }
+    else{
+      this.isLoggedIn=false;
+    }
+
   } 
   Search() {
     console.log(this.searchText);
@@ -66,15 +73,7 @@ export class NavbarComponent implements OnInit {
     this.showdialog=false;
   }
 
-    
-  
-  
-  
-
 
 
 }
 
-function onWindowScroll() {
-  throw new Error('Function not implemented.');
-}

@@ -9,45 +9,39 @@
                 <button (click)="showSignup()" [disabled]="!isLoginVisible">SIGNUP</button>
             </div>
 
-            <div *ngIf="isLoginVisible">
-
-                <form>
-                    <label for="login-email">Email Id</label><br>
-                    <input type="text"  name="email" required><br>
-                    <label for="login-password">Password </label>
-                    <input type="password" id="login-password" name="password" required><br>
-                    <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
+            <div *ngIf="isLoginVisible" [formGroup]="login">
+                <label for="login-email">Email Id</label><br>
+                <input type="text" formControlName="email" required><br>
+                <label for="login-password">Password </label>
+                <input type="password" id="login-password" formControlName="password" required><br>
+                <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
 
 
 
 
-                    <button style="background-color: brown;" class="l-button">LOGIN</button>
-                    <p>--------------------<b>OR</b>---------------------</p>
-                    <div class="FG-btn">
-                        <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>
-                        <button style="background-color: #F5F5F5; border-color: #d2c4c4;" class="btn3">GOOGLE</button>
-                    </div>
-                </form>
+                <button style="background-color: brown;" class="l-button">LOGIN</button>
+                <p>--------------------<b>OR</b>---------------------</p>
+                <div class="FG-btn">
+                    <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>
+                    <button style="background-color: #F5F5F5; border-color: #d2c4c4;" class="btn3">GOOGLE</button>
+                </div>
+
             </div>
-            <!-- <div class="FG-btn">
-                <button style="background-color: #4266B2 ;" class="btn2">FACEBOOK</button>
-                <button style="background-color: #F5F5F5;" class="btn3">GOOGLE</button>
-             </div> -->
 
-            <div *ngIf="!isLoginVisible">
-
-                <form style="align-items:center ;">
+            <form style="align-items:center ">
+            <div *ngIf="!isLoginVisible" [formGroup]="signup">
                     <label for="signup-username">FullName</label>
-                    <input type="text" id="FullName" name="Fullname" required><br>
+                    <input type="text" id="FullName" formControlName="fullname" required><br>
                     <label for="login-email">Email Id</label>
-                    <input type="text" id="email" name="email" required><br>
+                    <input type="email" id="email" formControlName="email" required><br>
                     <label for="login-password">Password </label>
-                    <input type="password" id="login-password" name="password" required><br>
+                    <input type="password" id="login-password" formControlName="password" required><br>
                     <label for="Mobile Number">Mobile Number</label>
-                    <input type="text" id="mobileno" name="mobileno">
-                    <button style="background-color: #A03037; color: white;" class="s-btn">SIGNUP</button>
-                </form>
+                    <input type="number" id="mobileno" formControlName="mobileno">
+                    <button style="background-color: #A03037; color: white;" class="s-btn" (click)="signUp()">SIGNUP</button>
+                
             </div>
+        </form>
         </div>
 
     </div>

@@ -10,7 +10,7 @@ import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 export class ProfileDetailsComponent implements OnInit {
 
   personal_form:FormGroup;
-  address_form!: FormGroup;
+  address_form: FormGroup;
 
   constructor(private fb:FormBuilder) {
     this.personal_form=this.fb.group({
@@ -26,6 +26,8 @@ export class ProfileDetailsComponent implements OnInit {
       state:['',Validators.required],
       type:['',Validators.required]
     })
+
+    
     
   }
 
