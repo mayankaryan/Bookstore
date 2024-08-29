@@ -1,3 +1,54 @@
-<div class="container">
-    
+<div class="main-container">
+    <div class="container">
+        <img src="../../../assets/icons/Screenshot 2024-08-28 145839.png">
+
+
+        <div class="first-container">
+            <div class="btn-cnt">
+                <button (click)="showLogin()" [disabled]="isLoginVisible">LOGIN</button>
+                <button (click)="showSignup()" [disabled]="!isLoginVisible">SIGNUP</button>
+            </div>
+
+            <div *ngIf="isLoginVisible">
+
+                <form>
+                    <label for="login-email">Email Id</label><br>
+                    <input type="text"  name="email" required><br>
+                    <label for="login-password">Password </label>
+                    <input type="password" id="login-password" name="password" required><br>
+                    <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
+
+
+
+
+                    <button style="background-color: brown;" class="l-button">LOGIN</button>
+                    <p>--------------------<b>OR</b>---------------------</p>
+                    <div class="FG-btn">
+                        <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>
+                        <button style="background-color: #F5F5F5; border-color: #d2c4c4;" class="btn3">GOOGLE</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="FG-btn">
+                <button style="background-color: #4266B2 ;" class="btn2">FACEBOOK</button>
+                <button style="background-color: #F5F5F5;" class="btn3">GOOGLE</button>
+             </div> -->
+
+            <div *ngIf="!isLoginVisible">
+
+                <form style="align-items:center ;">
+                    <label for="signup-username">FullName</label>
+                    <input type="text" id="FullName" name="Fullname" required><br>
+                    <label for="login-email">Email Id</label>
+                    <input type="text" id="email" name="email" required><br>
+                    <label for="login-password">Password </label>
+                    <input type="password" id="login-password" name="password" required><br>
+                    <label for="Mobile Number">Mobile Number</label>
+                    <input type="text" id="mobileno" name="mobileno">
+                    <button style="background-color: #A03037; color: white;" class="s-btn">SIGNUP</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
 </div>

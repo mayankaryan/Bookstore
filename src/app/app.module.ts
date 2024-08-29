@@ -39,7 +39,7 @@ import { SearchPipe } from './pipe/search.pipe';
     ProfileDetailsComponent,
     WishlistComponent,
     OrderComponent,
-    SearchPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

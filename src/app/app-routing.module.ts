@@ -10,6 +10,7 @@ import { OrderComponent } from './component/order/order.component';
 import { PleaseLoginComponent } from './component/please-login/please-login.component';
 import { LoginComponent } from './component/login/login.component';
 import { LoginSignupComponent } from './component/login-signup/login-signup.component';
+import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
   {
     path:'profile',
     component:ProfileDetailsComponent},
-    {path: 'forgotpassword',
+  {
+    path: 'forgotpassword',
     component: ForgotPasswordComponent
   },
   {
@@ -36,7 +38,9 @@ const routes: Routes = [
   {
     path:'login-signup',
     component:LoginSignupComponent
-  }
+  },
+  { path: 'wishlist-login', component: PleaseLoginComponent },
+  { path: 'order-placed', component: OrderPlacedComponent}
 ];
 
 @NgModule({

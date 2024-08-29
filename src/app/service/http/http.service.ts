@@ -8,15 +8,13 @@ export class HttpService {
   BaseUrl:string="https://bookstore.incubation.bridgelabz.com/";
   constructor(private httpClient: HttpClient) { }
 
-
-  GetApiAuthCall(url:string, headers: any) {
-    console.log(headers);
-    return this.httpClient.get( this.BaseUrl + url, headers)
+  GetApiAuthCall(url:string,token:boolean, headers: any) {
+    console.log("url",this.BaseUrl + url);
+    return this.httpClient.get( this.BaseUrl + url, token&&headers)
   }
  
  GetApiCall(url:string){
   console.log(this.BaseUrl+url);
   return this.httpClient.get(this.BaseUrl+url);
-
  }
 }

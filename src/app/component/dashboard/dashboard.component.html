@@ -14,9 +14,16 @@
      </div>
     </div>
     <div class="books">
-       <div *ngFor="let book of filteredBookList | search:searchText">
-        <app-bookwidget [book]="book"></app-bookwidget>
+       <div *ngFor="let i of paginatedBookList | search:searchText">
+        <app-bookwidget [book]="i"></app-bookwidget>
        </div>
     </div>
+    <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1" class="nav_btn"> < </button>
+        <span class="pg_num pg_1" [ngClass]="{'active-page': currentPage === 1}">1</span>
+        <span class="pg_num pg_2" [ngClass]="{'active-page': currentPage === 2}">2</span>
+        <span class="pg_num pg_3"[ngClass]="{'active-page': currentPage === 3}">3</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="nav_btn"> >  </button>
+      </div>
 </div>
 <app-footer></app-footer>
