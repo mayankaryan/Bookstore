@@ -11,13 +11,13 @@ import { PleaseLoginComponent } from './component/please-login/please-login.comp
 import { LoginComponent } from './component/login/login.component';
 import { LoginSignupComponent } from './component/login-signup/login-signup.component';
 import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
-
+import { authGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent
   },
-  { path: 'mycart',   component: MycartComponent },
+  { path: 'mycart',   component: MycartComponent ,canActivate: [authGuard] },
   { path: 'wishlist', component: WishlistComponent  },
   { path: 'order',    component: OrderComponent  },
   {
