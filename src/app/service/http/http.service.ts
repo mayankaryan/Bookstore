@@ -21,4 +21,13 @@ export class HttpService {
  PostApiCall (url: string, data: any) {
   return this.httpClient.post(this.BaseUrl+url, data);
  }
+
+ PutApiCall (url:string, id: any, data: any, token: boolean, headers: any) {
+  let putUrl = this.BaseUrl + url;
+  console.log( putUrl, data);
+  return this.httpClient.put(putUrl + id, data, token&&headers);
+ }
+
+
 }
+

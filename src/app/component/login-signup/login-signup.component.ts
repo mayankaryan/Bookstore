@@ -33,7 +33,6 @@ export class LoginSignupComponent {
           console.log(err);
         }
       })
-
   }
 
   showLogin() {
