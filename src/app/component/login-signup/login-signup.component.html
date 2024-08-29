@@ -11,17 +11,15 @@
 
             <div *ngIf="isLoginVisible">
 
-                <form>
-                    <label for="login-email">Email Id</label><br>
-                    <input type="text"  name="email" required><br>
+                <form [formGroup]="loginObj" >
+
+                    <label for="login-email" > Email Id</label><br>
+                    <input type="text"  name="email" formControlName="email" ><br>
                     <label for="login-password">Password </label>
-                    <input type="password" id="login-password" name="password" required><br>
+                    <input type="password" id="login-password" name="password" formControlName="password"><br>
                     <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
 
-
-
-
-                    <button style="background-color: brown;" class="l-button">LOGIN</button>
+                    <button style="background-color: brown;" class="l-button" (click)="onLogin()">LOGIN</button>
                     <p>--------------------<b>OR</b>---------------------</p>
                     <div class="FG-btn">
                         <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>
