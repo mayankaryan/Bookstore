@@ -1,7 +1,6 @@
 .main-cnt {
     width: 60%;
-    margin-left: 20%;
-    margin-top: 70px;
+    margin: 7% 0 0  20%;
     // border: 1px solid black;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -73,13 +72,14 @@ img {
 }
 .book-count {
     display: flex;
-    // justify-content: center;
-    // align-items: center;
+    align-items: center;
     gap: 1em;
     margin-top: 1em;
 }
 .book-count button{
-    display: block;
+    height: 1em;
+    width: 1em;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
@@ -92,14 +92,23 @@ img {
     background: #DCDCDC;
 }
 .book-count input {
-    display: inline;
-    width: 15%;
-    height: 1.7em;
-    padding-left: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+    width: 10%;
+    height: 1.5em;
     border: 1px solid #DCDCDC;
     outline: 1px solid #DCDCDC;
     font-size: 16px;
     color: #333232;
+}
+#remove-btn {
+    margin-left: 2em;
+    font-size: 1em;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .customer-cnt {
@@ -165,6 +174,7 @@ img {
 }
 .address {
     margin-left: 2em;
+    // width: 90%;
 }
 .address p {
     font-size: 14px;
@@ -231,3 +241,31 @@ img {
     border: none;
 
 }
+
+
+//-------------Scroll bar------------
+.scroll-cnt {
+    max-height: 20em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 1em;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #A03037; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #dc434d; 
+  }

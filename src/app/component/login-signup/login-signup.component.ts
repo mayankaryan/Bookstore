@@ -71,7 +71,6 @@ export class LoginSignupComponent implements OnInit {
           console.log(err);
         }
       })
-
   }
 
   showLogin() {

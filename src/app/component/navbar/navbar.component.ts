@@ -13,17 +13,15 @@ export class NavbarComponent implements OnInit {
   searchText: string = '';
   cartItemCount: number = 0;
 
-  constructor(private dataservice: DataService, private cartService: CartService,private router:Router) { }
+  constructor(private dataservice: DataService, private cartService: CartService, private router:Router) { }
 
   ngOnInit(): void {
-    this.cartService.cartCount$.subscribe({
+    
+    this.cartService.getMyCartItem().subscribe({
       next: (res: any) => {
-        this.cartItemCount = res;
-      },
-      error: (err: any) => {
-        console.log(err);
+        this.cartItemCount = res.result.length;
       }
-    })
+    });
 
     if(localStorage.getItem("access-token")){
       this.isLoggedIn=true;
