@@ -2,7 +2,7 @@
 
 <div class="main-cnt">
     <div class="route-cnt">
-        <span class="home-span">Home / </span><span>My cart</span>
+        <span class="home-span" [routerLink]="['/']">Home / </span><span>My cart</span>
     </div>
 
     <!--------------------Book Details--------------------------------------------------->
@@ -152,7 +152,7 @@
 
         <!--------Button: Checkout ------------------------>
         <div class="btn-cnt">
-            <button>CHECKOUT</button>
+            <button [routerLink]="['/order-placed']">CHECKOUT</button>
         </div>
         </div>
     </div>

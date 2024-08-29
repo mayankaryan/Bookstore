@@ -18,6 +18,10 @@ export class HttpService {
   return this.httpClient.get(this.BaseUrl+url);
  }
 
+ PostApiAuthCall(url:string,data:any,token:boolean,headers:any){
+  console.log("url",this.BaseUrl + url);
+  return this.httpClient.post(this.BaseUrl + url,data,token&&headers);
+ }
  PostApiCall (url: string, data: any) {
   return this.httpClient.post(this.BaseUrl+url, data);
  }

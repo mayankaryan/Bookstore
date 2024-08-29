@@ -11,6 +11,11 @@
 
             <div *ngIf="isLoginVisible">
 
+<<<<<<< HEAD
+                <form >
+                    <label for="login-email">Email Id</label><br>
+                    <input type="text"  name="email" required><br>
+=======
                 <form [formGroup]="loginObj" >
 
                     <label for="login-email" > Email Id</label><br>
@@ -20,6 +25,7 @@
                         <span class="ng-validators" *ngIf="loginObj.get('email')?.hasError('email')">invalid email address</span>
                     </div>
 
+>>>>>>> b0fac91ad4e25a6961f903333d2ce063f8fc49c5
                     <label for="login-password">Password </label>
                     <input type="password" id="login-password" name="password" formControlName="password"><br>
                     <div class="ng-validators" *ngIf="loginObj.get('password')?.touched">

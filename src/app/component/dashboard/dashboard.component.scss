@@ -9,13 +9,13 @@
 }
 .filter{
     border: 1px solid #E2E2E2;
-    height: 30px;
+    
     margin-left: 65%;
 }
 
 mat-form-field{
     margin-bottom: 0px !important;
-    height: 30px;
+    
 }
 ::ng-deep .mat-mdc-form-field-subscript-wrapper, .mat-mdc-form-field-bottom-align{
     height: 0px !important;
@@ -30,6 +30,25 @@ mat-form-field{
     grid-gap: 20px;
     margin-left: 90px;
     margin-right: 90px;
+    margin-top: 10px;
+}
+
+@media (max-width: 950px){
+    .books{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 750px){
+    .books{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px){
+    .books{
+        grid-template-columns: 1fr;
+    }
 }
 
 ::ng-deep .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
