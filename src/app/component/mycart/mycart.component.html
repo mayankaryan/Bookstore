@@ -156,7 +156,7 @@
         </div>
 
         <!--------Button: Checkout ------------------------>
-        <div class="btn-cnt">
+        <div class="btn-cnt" *ngIf="summaryContent">
             <button [routerLink]="['/order-placed']">CHECKOUT</button>
         </div>
     </div>

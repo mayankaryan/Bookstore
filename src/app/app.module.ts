@@ -21,6 +21,7 @@ import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { OrderComponent } from './component/order/order.component';
 import { ProfileDetailsComponent } from './component/profile-details/profile-details.component';
 import { SearchPipe } from './pipe/search.pipe';
+import { SnackbarComponent } from './component/snackbar/snackbar.component';
 
 
 
@@ -41,7 +42,8 @@ import { SearchPipe } from './pipe/search.pipe';
     ProfileDetailsComponent,
     WishlistComponent,
     OrderComponent,
-    SearchPipe
+    SearchPipe,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
