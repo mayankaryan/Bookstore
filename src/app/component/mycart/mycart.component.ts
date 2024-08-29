@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { HttpService } from 'src/app/service/http/http.service';
 
@@ -18,7 +19,7 @@ export class MycartComponent implements OnInit {
   addressDetails: boolean = false;
   summaryContent: boolean = false;
 
-  constructor(private cartServices: CartService) { }
+  constructor(private cartServices: CartService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -26,11 +27,12 @@ export class MycartComponent implements OnInit {
       next: (res: any) => {
         this.cartItems = res.result;
         console.log('cartItem', res.result);
-        this.cartLen = res.result.length;
-        this.cartServices.getCartItemCount(this.cartLen);     // calling cart service to share carl item count to navbar
+        this.cartLen = res.result.length; 
 
-        this.user = res.result[0].user_id;
-        this.address = res.result[0].user_id.address;
+        if( res.result.length) {
+          this.user = res.result[0].user_id;
+          this.address = res.result[0].user_id.address;
+        }
       },
       error: (err: any) => {
         console.log(err);
@@ -57,8 +59,18 @@ export class MycartComponent implements OnInit {
         }
       });
     }
+  }
 
-
+  removeBook (index: number) {
+    this.cartServices.deleteBook(this.cartItems[index]._id).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.router.navigate(['/mycart']);
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    })
   }
   
 

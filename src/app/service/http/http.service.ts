@@ -22,12 +22,13 @@ export class HttpService {
   return this.httpClient.post(this.BaseUrl+url, data);
  }
 
- PutApiCall (url:string, id: any, data: any, token: boolean, headers: any) {
-  let putUrl = this.BaseUrl + url;
-  console.log( putUrl, data);
-  return this.httpClient.put(putUrl + id, data, token&&headers);
+ PutApiAuthCall (url:string, id: any, data: any, token: boolean, headers: any) {
+  return this.httpClient.put(this.BaseUrl + url + id, data, token&&headers);
  }
 
+ DeleteApiAuthCall(url: string, id: any, token: boolean, headers: any) {
+  return this.httpClient.delete(this.BaseUrl + url + id, token&&headers)
+ }
 
 }
 
