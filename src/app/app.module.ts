@@ -23,6 +23,7 @@ import { ProfileDetailsComponent } from './component/profile-details/profile-det
 import { SearchPipe } from './pipe/search.pipe';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
