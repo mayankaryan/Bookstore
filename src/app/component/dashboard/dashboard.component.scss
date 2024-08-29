@@ -55,9 +55,19 @@ mat-form-field{
     padding-top: 5px !important;
     
 }
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    
+  }
+  .mat-spinner circle, .mat-progress-spinner circle {
+    stroke: #A03037 !important; /* Replace with your desired color */
+  }
 
 .content{
-    margin-top: 20px;
+    margin-top: 80px;
 }
 
 .pagination{

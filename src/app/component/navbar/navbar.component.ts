@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Route, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
-import { error } from 'winston';
+
 
 @Component({
   selector: 'app-navbar',
