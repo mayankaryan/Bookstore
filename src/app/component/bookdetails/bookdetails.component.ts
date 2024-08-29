@@ -13,6 +13,7 @@ export class BookdetailsComponent {
   bookdetails: any = {};
   rating: number = 0;
   commentform!: FormGroup;
+  isLoading: boolean = true;
   constructor(private bookservice: BookService, private datatransferservice: DatatransferService, private fb: FormBuilder) {
 
 
@@ -23,18 +24,26 @@ export class BookdetailsComponent {
       this.bookdetails = message;
       console.log("bookdetails", this.bookdetails);
     });
-    this.bookservice.getFeedBack(this.bookdetails._id).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.feedbackList = res.result;
-      }, error: (err: any) => {
-        console.log(err);
-      }
-    });
+    this.fetchFeedback();
     this.commentform = this.fb.group({
       comment: ['']
     });
   }
+
+  fetchFeedback() {
+    setTimeout(()=>{
+      this.bookservice.getFeedBack(this.bookdetails._id).subscribe({
+        next: (res: any) => {
+          console.log(res);
+          this.feedbackList = res.result;
+        }, error: (err: any) => {
+          console.log(err);
+        }
+      });
+      this.isLoading = false;
+    },1000);
+  }
+
   getRatingArray(rating: number): number[] {
     return Array(rating).fill(0).map((x, i) => i);
   }

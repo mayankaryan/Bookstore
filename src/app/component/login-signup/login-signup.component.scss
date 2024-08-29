@@ -25,7 +25,12 @@
 .container p{
     margin-top: 10px;
 }
-
+ 
+ @media (max-width:950px){
+    .img_login{
+        display: none;
+    }
+ }
 .first-container{
     
     height: 110%;

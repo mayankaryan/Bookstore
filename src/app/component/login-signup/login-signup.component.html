@@ -1,6 +1,8 @@
 <div class="main-container">
     <div class="container">
-        <img src="../../../assets/icons/Screenshot 2024-08-28 145839.png">
+
+    <img class="img_login" src="../../../assets/icons/Screenshot 2024-08-28 145839.png">
+
 
 
         <div class="first-container">
@@ -28,7 +30,7 @@
                         <span class="ng-validators" *ngIf="loginObj.get('password')?.hasError('required')">password is
                             required</span>
                     </div>
-                    <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
+                    <a [routerLink]="['/forgotpassword']" style="border-color: #F5F5F5;">Forgot Password?</a><br>
 
                     <button style="background-color: brown;" class="l-button" [disabled]="loginObj.invalid"
                         (click)="onLogin()">LOGIN</button>
@@ -39,6 +41,7 @@
                     </div>
                 </form>
             </div>
+
 
             <form style="align-items:center;">
                 <div *ngIf="!isLoginVisible" [formGroup]="signup">
