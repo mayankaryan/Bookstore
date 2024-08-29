@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { HttpService } from 'src/app/service/http/http.service';
+import { SnackbarService } from 'src/app/service/snackbar.service';
 
 
 @Component({
@@ -19,7 +20,11 @@ export class MycartComponent implements OnInit {
   addressDetails: boolean = false;
   summaryContent: boolean = false;
 
-  constructor(private cartServices: CartService, private router: Router) { }
+  constructor(
+    private cartServices: CartService, 
+    private router: Router,
+    private snackbarService: SnackbarService,
+  ) { }
 
   ngOnInit(): void {
 
@@ -65,6 +70,7 @@ export class MycartComponent implements OnInit {
     this.cartServices.deleteBook(this.cartItems[index]._id).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.snackbarService.openCustomSnackBar('removed from cart', 'done');
         this.router.navigate(['/mycart']);
       },
       error: (err: any) => {

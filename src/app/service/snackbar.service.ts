@@ -14,8 +14,10 @@ export class SnackbarService {
       data: {
         message: message,
         icon: icon,
+        snackbar: this._snackbar,
       },
-      panelClass: ['success-snackbar']
+      panelClass: ['success-snackbar'],
+      duration: 3000,
     });
   }
 }
