@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { LoginService } from 'src/app/service/login.service';
 export class LoginSignupComponent {
   isLoginVisible: boolean = true;
   loginObj: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('',[ Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
   });
 
   constructor(private loginService: LoginService) { }
