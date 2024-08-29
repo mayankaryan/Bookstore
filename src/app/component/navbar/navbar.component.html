@@ -1,15 +1,16 @@
 <div class="navbar-container">
     <div class="nav">
-      
+
         <img class="bookstore-icon" src="../../../assets/icons/education.svg" [routerLink]="['/']">
-            <p class="bookstore-text">BookStore</p>
+        <p class="bookstore-text">BookStore</p>
         <div class="search">
             <img src="../../../assets/icons/search_24dp_9D9D9D_FILL0_wght400_GRAD0_opsz24.svg">
-            <input matInput [(ngModel)]="searchText" class="search-box" placeholder="search.." (ngModelChange)="Search()">
+            <input matInput [(ngModel)]="searchText" class="search-box" placeholder="search.."
+                (ngModelChange)="Search()">
         </div>
         <div class="cart-profile">
             <div class="line-1"></div>
-            <div class="person">
+            <div class="person" style="cursor: pointer;" (click)="toggle()">
                 <mat-icon>person</mat-icon>
                 <p>Profile</p>
             </div>
@@ -18,12 +19,47 @@
                 <img src="../../../assets/icons/supermarket.svg">
                 <p>Cart</p>
             </div>
-            <p class="cart-number">1</p>
+            <p class="cart-number">{{cartItemCount}}</p>
             <div class="line-3"></div>
+        </div>
+
+        <div *ngIf="showdialog" class="dialog-box">
+            <div class="white-line"></div>
+            <div *ngIf="isLoggedIn" class="dialog-login">
+                <p style="font-weight: bold;">Hello Poonam,</p>
+                <div class="profile" (click)="openProfile()">
+                    <mat-icon>person_outline</mat-icon>
+                    <p>Profile</p>
+                </div>
+                <div class="my-orders" (click)="openOrders()">
+                    <mat-icon>markunread_mailbox</mat-icon>
+                    <p>My Orders</p>
+                </div>
+                <div class="wishlist" (click)="openWishlist()">
+                    <mat-icon>favorite_outline</mat-icon>
+                    <p>My Wishlist</p>
+                </div>
+                <button mat-button class="logout-btn">Logout</button>
+            </div>
+            <div class="dialog-not-login" *ngIf="!isLoggedIn">
+            <div class="welcome-login-signup">
+                <p style="font-weight: bold;">Welcome</p>
+                <p style="color:#878787 ;">To access account and manage orders</p>
+                <button mat-button (click)="openloginsignup()">LOGIN/SIGNUP</button>
+            </div>
+                <div class="nologin-orders">
+                    <mat-icon>markunread_mailbox</mat-icon>
+                    <p>My Orders</p>
+                </div>
+                <div class="nologin-wishlist" (click)="openNoWishlist()">
+                    <mat-icon>favorite_outline</mat-icon>
+                    <p>My Wishlist</p>
+                </div>
+            </div>
+
+
+
         </div>
 
 
     </div>
-
-
-</div>

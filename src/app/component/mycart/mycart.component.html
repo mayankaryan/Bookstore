@@ -1,109 +1,159 @@
+<app-navbar></app-navbar>
+
 <div class="main-cnt">
     <div class="route-cnt">
         <span class="home-span">Home / </span><span>My cart</span>
     </div>
 
+    <!--------------------Book Details--------------------------------------------------->
     <div class="cart-cnt">
         <div class="cart-heading">
-            <p>My cart(1)</p>
+            <p>My cart ({{cartLen}})</p>
             <div class="user-location">
                 Location
             </div>
         </div>
-        <div class="cart-content">
+
+        <!--------------Book List of my Cart --------------------------->
+        <div class="cart-content" *ngFor="let item of cartItems; let ind = index">
             <div class="img-cnt">
                 <img src="../../../assets/books/book2.png" alt="">
             </div>
             <div class="book-detials">
-                <p>Don't make me think</p>
-                <p id="auther-name">by Steve Krug</p>
-                <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
+                <p>{{item.product_id.bookName}}</p>
+                <p id="auther-name">by {{item.product_id.author}}</p>
+                <P>Rs. {{item.product_id.discountPrice}} &nbsp;<span>Rs {{item.product_id.price}}</span></P>
+
                 <div class="book-count">
-                    <button (click)="decrement()">-</button>
-                    <input type="number" [(ngModel)]="bookCount" >
-                    <button (click)="increment()">+</button>
-                    
+                    <button (click)="decrement(ind)">-</button>
+                    <input type="number" [(ngModel)]="item.quantityToBuy">
+                    <button (click)="increment(ind)">+</button>
                 </div>
             </div>         
         </div>
-        
-        <div class="btn-cnt">
-            <button>PLACE ORDER</button>
-        </div>
 
+        <!------------ Button: Place Order ------------------->
+        <div class="btn-cnt">
+            <button (click)="onPlaceOrder()">PLACE ORDER</button>
+        </div>
     </div>
 
+    <!--------------------Address Details--------------------------------------------------->
     <div class="customer-cnt">
         <div class="customer-heading">
             <p>Address details</p>
-            <div class="add-new-address">
+            <div class="add-new-address" *ngIf="addressDetails">
                 Add New Address
             </div>
         </div>
+
+        <!---------show this div if user doesn't move to order summary----------->
+        <div *ngIf="addressDetails">
+
+        <!------------ User Name and Mobile Number -------------------------->
         <div class="customer-detail">
             <div>
                 <label for="name">Name</label>
-                <input type="text" value="Mayank Aryan">
+                <input type="text" name="name" [disabled]="summaryContent" [(ngModel)]="user.fullName">
             </div>
             <div>
-                <label for="mobile num">Mobile Number</label>
-                <input type="number" value="7050783093">
+                <label for="mobileNum">Mobile Number</label>
+                <input type="text" name="mobileNum" [disabled]="summaryContent" [(ngModel)]="user.phone">
             </div>
         </div>
-        <div class="customer-address">
-            <mat-radio-group [(ngModel)]="custAddress">
-                <div *ngFor="let item of Address; let i = index">
 
-                    <mat-radio-button value="{{item.type}}">
-                        <span id="add-title">{{i+1}}. {{item.type}} </span>
-                        <span id="add-edit-icon" *ngIf="custAddress==item.type">Edit</span>
+        <!------------ User Address ----------------------------------------->
+        <div class="customer-address" *ngIf="!summaryContent">
+            <mat-radio-group [(ngModel)]="custAddress">
+                <div *ngFor="let item of address; let ind = index">
+
+                    <mat-radio-button value="{{ind}}">
+                        <span id="add-title">{{ind+1}}. {{item.addressType}} </span>
+                        <span id="add-edit-icon" *ngIf="custAddress==ind">Edit</span>
                     </mat-radio-button>
 
+                    <!------------------User Address shown before selecting radio button -------------->
                     <div class="address">
                         <p>Address</p>
-                        <p *ngIf="custAddress!==item.type">{{item.address}}, {{item.region}}, {{item.state}}</p>
+                        <p *ngIf="custAddress!==ind">{{item.fullAddress}}, {{item.city}}, {{item.state}}</p>
 
-                        <div class="edit-address"  *ngIf="custAddress==item.type">
-                            <textarea rows="4" name="address" id="address" [(ngModel)]="item.address">{{item.address}}</textarea>
+                        <!------------------User Address shown after selecting radio button, editable input and textarea-------------->
+                        <div class="edit-address"  *ngIf="custAddress==ind">
+                            <textarea rows="4" name="address" id="address" [(ngModel)]="item.fullAddress">{{item.address}}</textarea>
                             <div class="address-area">
                                 <div>
                                     <label for="city/town">city/town</label>
-                                    <input type="text" [(ngModel)]="item.region" value="{{item.region}}">
+                                    <input type="text" name="city/town" [(ngModel)]="item.city" value="{{item.region}}">
                                 </div>
                                 <div>
                                     <label for="State">State</label>
-                                    <input type="text" [(ngModel)]="item.state" value="{{item.state}}">
+                                    <input type="text" name="State" [(ngModel)]="item.state" value="{{item.state}}">
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
+                <!-- <p>{{custAddress}}</p> -->
                 
-                <p>{{custAddress}}</p>
             </mat-radio-group>
         </div>
-        <div class="btn-cnt">
-            <button>CONTINUE</button>
+
+        <!----------- Button: Continue --------------------------------->
+        <div class="btn-cnt" *ngIf="!summaryContent">
+            <button (click)="onContinue()">CONTINUE</button>
+        </div>
+        </div>
+
+        <!---------show this div if user doesn't move to order summary----------->
+        <div class="selected-add" *ngIf="summaryContent">
+            <p>
+                <span id="add-title">{{address[custAddress].addressType}} </span>
+            </p>
+
+            <div class="address">
+                <p>Address</p>
+
+                <!-----------------Selected address shown in disabled input and textarea ---------------->
+                <div class="edit-address" >
+                    <textarea rows="4" name="address" id="address" [disabled]="summaryContent" [(ngModel)]="address[custAddress].fullAddress">{{address[custAddress].address}}</textarea>
+                    <div class="address-area">
+                        <div>
+                            <label for="city/town">city/town</label>
+                            <input type="text" name="city/town" [disabled]="summaryContent" [(ngModel)]="address[custAddress].city" value="{{address[custAddress].region}}">
+                        </div>
+                        <div>
+                            <label for="State">State</label>
+                            <input type="text" name="State" [disabled]="summaryContent" [(ngModel)]="address[custAddress].state" value="{{address[custAddress].state}}">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
     </div>
 
+    <!--------------------Order Summart--------------------------------------------------->
     <div class="summary-cnt">
         <p>Order summary</p>
 
-        <div class="cart-content">
+        <div *ngIf="summaryContent">
+        <div class="cart-content"  *ngFor="let item of cartItems">
             <div class="img-cnt">
-                <img src="../../../assets/books/book 2.png" alt="">
+                <img src="../../../assets/books/book2.png" alt="">
             </div>
             <div class="book-detials">
-                <p>Don't make me think</p>
-                <p id="auther-name">by Steve Krug</p>
-                <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
-            </div>
+                <p>{{item.product_id.bookName}}</p>
+                <p id="auther-name">by {{item.product_id.author}}</p>
+                <P>Rs. {{item.product_id.discountPrice}} &nbsp;<span>Rs {{item.product_id.price}}</span></P>
+            </div>         
         </div>
+
+        <!--------Button: Checkout ------------------------>
         <div class="btn-cnt">
             <button>CHECKOUT</button>
+        </div>
         </div>
     </div>
 </div>

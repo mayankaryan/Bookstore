@@ -33,9 +33,6 @@ export class ProfileDetailsComponent implements OnInit {
    
   }
 
-  onsubmit(){
-    console.log(this.address_form);
-  }
 
 
 
