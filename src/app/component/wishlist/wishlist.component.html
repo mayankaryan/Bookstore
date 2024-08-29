@@ -7,33 +7,18 @@
 
     <div class="wishlist-cnt">
         <div class="wishlist-heading">
-            <p>My wishlist (1)</p>
+            <p>My wishlist ({{ wishlistLen }})</p>
         </div>
 
-        <div class="wishlist-content">
+        <div class="wishlist-content" *ngFor="let item of wishList">
             <div>
                 <div class="img-cnt">
                     <img src="../../../assets/books/book2.png" alt="">
                 </div>
                 <div class="book-detials">
-                    <p>Don't make me think</p>
-                    <p id="auther-name">by Steve Krug</p>
-                    <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
-                </div>
-            </div>
-            <div class="delete-btn">
-                <button><mat-icon>delete_outline</mat-icon></button>
-            </div>
-        </div>
-        <div class="wishlist-content">
-            <div>
-                <div class="img-cnt">
-                    <img src="../../../assets/books/book2.png" alt="">
-                </div>
-                <div class="book-detials">
-                    <p>Don't make me think</p>
-                    <p id="auther-name">by Steve Krug</p>
-                    <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
+                    <p>{{ item.product_id.bookName }}</p>
+                    <p id="auther-name">{{ item.product_id.bookName }}</p>
+                    <P>Rs. {{ item.product_id.discountPrice }} &nbsp;<span>Rs {{ item.product_id.price }}</span></P>
                 </div>
             </div>
             <div class="delete-btn">
