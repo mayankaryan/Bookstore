@@ -15,7 +15,7 @@ export class WishlistComponent {
       next: (res: any) => {
         console.log(res);
         this.wishList = res.result;
-        console.log(this.wishList);
+        console.log('wishlist', this.wishList);
       },
       error: (err: any) => {
         console.log(err);
