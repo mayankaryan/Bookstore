@@ -25,6 +25,10 @@ export class NavbarComponent implements OnInit {
       }
     })
 
+    if(localStorage.getItem('access-token')) {
+      this.isLoggedIn = true;
+    } 
+
   } 
   Search() {
     console.log(this.searchText);
@@ -34,6 +38,10 @@ export class NavbarComponent implements OnInit {
   isLoggedIn=false; 
   showdialog=false;
 
+  logoutUser() {
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
   openWishlist(){
     this.router.navigate(['/wishlist']);
     this.showdialog=false;

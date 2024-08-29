@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginSignupComponent {
     password: new FormControl('', Validators.required),
   });
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   onLogin() {
     console.log(this.loginObj.value);
@@ -26,6 +27,7 @@ export class LoginSignupComponent {
         next: (res: any) => {
           console.log('login', res);
           localStorage.setItem('access-token', res.result.accessToken);
+          this.router.navigate([''])
         },
         error: (err: any) => {
           console.log(err);
