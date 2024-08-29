@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/service/user/user.service';
+import { FormControl, FormGroup, Validators,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
@@ -8,14 +9,51 @@ import { LoginService } from 'src/app/service/login.service';
   templateUrl: './login-signup.component.html',
   styleUrls: ['./login-signup.component.scss']
 })
-export class LoginSignupComponent {
-  isLoginVisible: boolean = true;
+export class LoginSignupComponent implements OnInit {
+  isLoginVisible = true;
+
+  login!: FormGroup;
+  signup!: FormGroup;
+
+  constructor(private fb:FormBuilder,private userservive:UserService,private loginService: LoginService,private router: Router) {
+
+  }
+  ngOnInit() {
+    this.signup = this.fb.group({
+      fullname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.required]],
+      password: ['', Validators.required],
+      mobileno: ['', Validators.required]
+
+    })
+  }
+
+  signUp(){
+    const data={
+      fullName:this.signup.get("fullname")?.value,
+      email:this.signup.get("email")?.value,
+      password:this.signup.get("password")?.value,
+      phone:this.signup.get("mobileno")?.value
+    }
+    this.userservive.register("/bookstore_user/registration",data).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.isLoginVisible=true;
+      },
+      error:(err)=>{
+        console.log(err);
+      },
+      complete:()=>{
+
+      }
+    })
+  }
+
+
   loginObj: FormGroup = new FormGroup({
     email: new FormControl('',[ Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
-
-  constructor(private loginService: LoginService, private router: Router) { }
 
   onLogin() {
     console.log(this.loginObj.value);
