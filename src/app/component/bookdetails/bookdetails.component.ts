@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BookService } from '../../service/book.service';
 import { DatatransferService } from '../../service/datatransfer.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SnackbarService } from 'src/app/service/snackbar.service';
 
 @Component({
   selector: 'app-bookdetails',
@@ -14,7 +15,9 @@ export class BookdetailsComponent {
   rating: number = 0;
   commentform!: FormGroup;
   isLoading: boolean = true;
-  constructor(private bookservice: BookService, private datatransferservice: DatatransferService, private fb: FormBuilder) {
+  constructor(private bookservice: BookService, private datatransferservice: DatatransferService, private fb: FormBuilder,
+    private snackbarService: SnackbarService,
+  ) {
 
 
   }
@@ -55,6 +58,7 @@ export class BookdetailsComponent {
     this.bookservice.addtoWishlist(id).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.snackbarService.openCustomSnackBar(' added to wishlist !!', 'done');
         console.log("added to wishlist");
 
       }, error: (err: any) => {
@@ -67,6 +71,7 @@ export class BookdetailsComponent {
     this.bookservice.addtoCart(id).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.snackbarService.openCustomSnackBar(' added to cart', 'done');
         console.log("added to cart");
       }, error: (err: any) => {
         console.log(err);

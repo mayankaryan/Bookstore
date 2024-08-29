@@ -1,0 +1,19 @@
+.cnt {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.cnt div {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    border: none;
+    background: none;
+    color: white;
+}
