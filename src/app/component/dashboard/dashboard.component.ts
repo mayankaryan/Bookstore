@@ -52,6 +52,7 @@ export class DashboardComponent {
       this.searchText =message ;
   });
   }
+  
   length(): number {
     return this.booklist.length;
   }
