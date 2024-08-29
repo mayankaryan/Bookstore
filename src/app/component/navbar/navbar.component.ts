@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Route, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
         console.log(err);
       }
     })
+
   } 
   Search() {
     console.log(this.searchText);
@@ -64,8 +65,16 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login-signup']);
     this.showdialog=false;
   }
+
+    
+  
+  
   
 
 
 
+}
+
+function onWindowScroll() {
+  throw new Error('Function not implemented.');
 }
