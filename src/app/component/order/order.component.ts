@@ -42,11 +42,8 @@ export class OrderComponent {
           console.log(err);
         }
       });
-<<<<<<< HEAD
      
-=======
       
->>>>>>> f4f1e58065a8bf7aa731ea00e4f8648054e191d7
      },2000);
   }
 
