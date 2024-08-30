@@ -26,8 +26,5 @@ export class WishlistService {
     const accesstoken=localStorage.getItem('admin-token');
     const myheaders=new HttpHeaders().set('x-access-token',accesstoken?accesstoken:'');
     return this.httpService.DeleteApiAuthCall('bookstore_user/remove_wishlist_item/',id,true,{headers:myheaders});
-    // const accessToken = localStorage.getItem('access-token');
-    // const myheaders = new HttpHeaders().set('x-access-token', (accessToken) ? accessToken : "");
-    // return this.httpService.DeleteApiAuthCall('bookstore_user/remove_cart_item/',id,true, {headers: myheaders});
   }
 }
