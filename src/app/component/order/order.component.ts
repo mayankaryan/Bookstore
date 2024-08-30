@@ -34,13 +34,14 @@ export class OrderComponent {
       this.wishlistservice.getorderslist().subscribe({
         next:(res:any)=>{
           console.log(res);
+          this.isLoading=false;
           this.orderlist=res.result.splice(0,50);
   
         },error:(err:any)=>{
           console.log(err);
         }
       });
-      this.isLoading=false;
+     
      },2000);
   }
 

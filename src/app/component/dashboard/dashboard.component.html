@@ -14,9 +14,17 @@
      </div>
     </div>
 
-    <div *ngIf="isLoading" class="spinner">
-        <mat-spinner color="warn" ></mat-spinner>
-      </div>
+    <div *ngIf="isLoading" class="shimmer-wrapper">
+      <div class="shimmer-card"></div>
+      <div class="shimmer-card"></div>
+      <div class="shimmer-card"></div>
+      <div class="shimmer-card"></div>
+      <div class="shimmer-card"></div>
+      <div class="shimmer-card"></div>
+      <div class="shimmer-card"></div>
+      <div class="shimmer-card"></div>
+  </div>
+
 
     <div *ngIf="!isLoading" class="books">
        <div *ngFor="let i of paginatedBookList | search:searchText">

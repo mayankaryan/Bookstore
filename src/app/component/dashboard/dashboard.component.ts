@@ -41,6 +41,7 @@ export class DashboardComponent {
       this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
         next:(res:any)=>{
           this.booklist=res.result;
+          this.isLoading = false;
           console.log(this.booklist);
           this.booklist = this.booklist.map((note: any) => ({
             ...note,
@@ -57,7 +58,7 @@ export class DashboardComponent {
       this.dataservice.currentMessage.subscribe((message) => {
         this.searchText =message ;
     });
-    this.isLoading = false;
+    
      },1000);
   }
   
