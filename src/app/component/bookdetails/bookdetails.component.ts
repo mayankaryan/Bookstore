@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BookService } from '../../service/book.service';
 import { DatatransferService } from '../../service/datatransfer.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { SnackbarService } from 'src/app/service/snackbar.service';
+import { SnackbarService } from '../../service/snackbar.service';
 
 @Component({
   selector: 'app-bookdetails',
@@ -25,12 +25,18 @@ export class BookdetailsComponent {
 
     this.datatransferservice.currentMessage.subscribe((message) => {
       this.bookdetails = message;
+      localStorage.setItem('bookdetails', JSON.stringify(this.bookdetails));
       console.log("bookdetails", this.bookdetails);
     });
     this.fetchFeedback();
     this.commentform = this.fb.group({
       comment: ['']
     });
+
+    const bookdetails = localStorage.getItem('bookdetails');
+  }
+  ngOnDestroy() {
+    localStorage.removeItem('bookdetails');
   }
 
   fetchFeedback() {
