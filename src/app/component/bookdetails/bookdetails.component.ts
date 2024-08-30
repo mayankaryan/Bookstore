@@ -50,6 +50,7 @@ export class BookdetailsComponent {
           console.log(err);
         }
       });
+     
       
     },1000);
   }

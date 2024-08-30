@@ -41,6 +41,7 @@ export class DashboardComponent {
       this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
         next:(res:any)=>{
           this.booklist=res.result;
+          this.isLoading = false;
           console.log(this.booklist);
           this.isLoading = false;
           this.booklist = this.booklist.map((note: any) => ({

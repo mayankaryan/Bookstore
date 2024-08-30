@@ -34,6 +34,7 @@ export class OrderComponent {
       this.wishlistservice.getorderslist().subscribe({
         next:(res:any)=>{
           console.log(res);
+          this.isLoading=false;
           this.orderlist=res.result.splice(0,50);
           this.isLoading=false;
   
@@ -41,6 +42,7 @@ export class OrderComponent {
           console.log(err);
         }
       });
+     
       
      },2000);
   }
