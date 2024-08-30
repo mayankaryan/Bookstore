@@ -21,3 +21,21 @@ opacity: 1;
 margin-left: 174px;
 margin-top: 17px;
 }
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .footer-text {
+        width: 300px;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-text {
+        width: 200px;
+        margin-left: 20px;
+        font-size: small;
+    }
+}
+
