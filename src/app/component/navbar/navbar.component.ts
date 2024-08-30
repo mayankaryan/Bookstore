@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     localStorage.removeItem("access-token");
     this.snackbarService.openCustomSnackBar('logged out !', 'done');
-    this.router.navigate(['/'])
+    window.location.reload();
   }
 
   openNoWishlist(){
