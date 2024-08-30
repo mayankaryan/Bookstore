@@ -4,7 +4,6 @@ import { Route, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { SnackbarService } from 'src/app/service/snackbar.service';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -65,7 +64,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     localStorage.removeItem("access-token");
     this.snackbarService.openCustomSnackBar('logged out !', 'done');
-    this.router.navigate(['/'])
+    window.location.reload();
   }
 
   openNoWishlist(){
@@ -77,8 +76,4 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login-signup']);
     this.showdialog=false;
   }
-
-
-
 }
-

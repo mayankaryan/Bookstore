@@ -21,6 +21,7 @@ export class WishlistComponent {
           }
         });
         this.wishlistLen = this.wishList.length;
+        console.log('wishlist', this.wishList);
       },
       error: (err: any) => {
         this.router.navigate(['/wishlist-login']);
@@ -38,5 +39,16 @@ export class WishlistComponent {
         console.log(err);
       }
     })
+  }
+
+  removeBook(index: number) {
+    this.wishlistService.deleteBook(this.wishList[index].product_id._id).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    });
   }
 }

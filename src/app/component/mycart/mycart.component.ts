@@ -71,7 +71,8 @@ export class MycartComponent implements OnInit {
       next: (res: any) => {
         console.log(res);
         this.snackbarService.openCustomSnackBar('removed from cart', 'done');
-        this.router.navigate(['/mycart']);
+        // this.router.navigate(['/mycart']);
+        window.location.reload();
       },
       error: (err: any) => {
         console.log(err);
