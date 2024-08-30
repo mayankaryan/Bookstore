@@ -44,12 +44,13 @@ export class BookdetailsComponent {
       this.bookservice.getFeedBack(this.bookdetails._id).subscribe({
         next: (res: any) => {
           console.log(res);
+          this.isLoading = false;
           this.feedbackList = res.result;
         }, error: (err: any) => {
           console.log(err);
         }
       });
-      this.isLoading = false;
+      
     },1000);
   }
 

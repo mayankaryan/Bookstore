@@ -35,12 +35,13 @@ export class OrderComponent {
         next:(res:any)=>{
           console.log(res);
           this.orderlist=res.result.splice(0,50);
+          this.isLoading=false;
   
         },error:(err:any)=>{
           console.log(err);
         }
       });
-      this.isLoading=false;
+      
      },2000);
   }
 

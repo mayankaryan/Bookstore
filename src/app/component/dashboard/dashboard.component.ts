@@ -42,6 +42,7 @@ export class DashboardComponent {
         next:(res:any)=>{
           this.booklist=res.result;
           console.log(this.booklist);
+          this.isLoading = false;
           this.booklist = this.booklist.map((note: any) => ({
             ...note,
             book_url: this.getRandombookimg()
@@ -57,7 +58,7 @@ export class DashboardComponent {
       this.dataservice.currentMessage.subscribe((message) => {
         this.searchText =message ;
     });
-    this.isLoading = false;
+    
      },1000);
   }
   
