@@ -17,6 +17,7 @@ export class WishlistService {
   }
 
   getorderslist(){
+    console.log('order service');
     const accesstoken=localStorage.getItem('admin-token');
     const myheaders=new HttpHeaders().set('x-access-token',accesstoken?accesstoken:'');
     return this.httpService.GetApiAuthCall('/bookstore_user/admin/get/order',true,{headers:myheaders});

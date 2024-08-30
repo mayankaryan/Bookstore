@@ -3,7 +3,7 @@ import { UserService } from 'src/app/service/user/user.service';
 import { FormControl, FormGroup, Validators,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
-import { SnackbarService } from 'src/app/service/snackbar.service';
+import { SnackbarService } from '../../service/snackbar.service';
 
 @Component({
   selector: 'app-login-signup',
