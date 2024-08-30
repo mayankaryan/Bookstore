@@ -37,7 +37,7 @@
         </div>
         
         <!------------ Button: Place Order ------------------->
-        <div class="btn-cnt">
+        <div class="btn-cnt" *ngIf="!addressDetails">
             <button (click)="onPlaceOrder()">PLACE ORDER</button>
         </div>
     </div>
@@ -162,4 +162,4 @@
     </div>
 </div>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

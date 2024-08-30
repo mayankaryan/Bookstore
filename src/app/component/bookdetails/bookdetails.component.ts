@@ -51,6 +51,7 @@ export class BookdetailsComponent {
         }
       });
      
+      
     },1000);
   }
 

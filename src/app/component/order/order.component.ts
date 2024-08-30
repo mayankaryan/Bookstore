@@ -36,12 +36,17 @@ export class OrderComponent {
           console.log(res);
           this.isLoading=false;
           this.orderlist=res.result.splice(0,50);
+          this.isLoading=false;
   
         },error:(err:any)=>{
           console.log(err);
         }
       });
+<<<<<<< HEAD
      
+=======
+      
+>>>>>>> f4f1e58065a8bf7aa731ea00e4f8648054e191d7
      },2000);
   }
 

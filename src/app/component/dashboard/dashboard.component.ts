@@ -43,6 +43,7 @@ export class DashboardComponent {
           this.booklist=res.result;
           this.isLoading = false;
           console.log(this.booklist);
+          this.isLoading = false;
           this.booklist = this.booklist.map((note: any) => ({
             ...note,
             book_url: this.getRandombookimg()
