@@ -2,15 +2,15 @@
 
 <div class="main-cnt">
     <div class="route-cnt">
-        <span class="home-span">Home / </span><span>My wishlist</span>
-    </div>
+        <span class="home-span" [routerLink]="['/']">Home / </span><span>My wishlist</span>
+    </div>  
 
     <div class="wishlist-cnt">
         <div class="wishlist-heading">
             <p>My wishlist ({{ wishlistLen }})</p>
         </div>
 
-        <div class="wishlist-content" *ngFor="let item of wishList">
+        <div class="wishlist-content" *ngFor="let item of wishList; let ind = index">
             <div>
                 <div class="img-cnt">
                     <img src="../../../assets/books/book2.png" alt="">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="delete-btn">
-                <button><mat-icon>delete_outline</mat-icon></button>
+                <button (click)="removeBook(ind)"><mat-icon>delete_outline</mat-icon></button>
             </div>
         </div>
     </div>
