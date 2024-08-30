@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { WishlistService } from 'src/app/service/wishlist.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -6,5 +8,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent {
+  wishList: any[] = [];
+  wishlistLen : number = 0;
 
+  constructor ( private wishlistService: WishlistService, private router: Router ) {
+
+    this.wishlistService.getServiceWishList().subscribe({
+      next: (res: any) => {
+        this.wishList = res.result.filter((item:any) => {
+          if( item.product_id != null ) {
+            return item;
+          }
+        });
+        this.wishlistLen = this.wishList.length;
+        console.log('wishlist', this.wishList);
+      },
+      error: (err: any) => {
+        this.router.navigate(['/wishlist-login']);
+        console.log(err);
+      }
+    })
+   }
+
+  getWishList() {
+    this.wishlistService.getServiceWishList().subscribe({
+      next: (res: any) => {
+        console.log(res.result);
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    })
+  }
+
+  removeBook(index: number) {
+    this.wishlistService.deleteBook(this.wishList[index].product_id._id).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    });
+  }
 }

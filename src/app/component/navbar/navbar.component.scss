@@ -1,4 +1,4 @@
-.nav{
+.nav {
     top: 0px;
     left: 0px;
     width: 100%;
@@ -9,6 +9,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    z-index: 100;
+    position:fixed;
 }
 
 .bookstore-text {
@@ -27,66 +29,97 @@
     width: 31px;
     height: 24px;
     opacity: 1;
-    margin-left: 150px;
+    margin-left: 12%;
 }
 
-.search{
+@media (max-width:950px){
+    .bookstore-text {
+        margin-left: 5px;
+    }
+    .search{
+        width: 300px;
+    }
+    .person{
+        margin-left: 10px;
+    }
+    .cart{
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+
+}
+@media (max-width:700px){
+    .bookstore-text {
+        margin-left: 2px;
+    }
+    .search{
+        width: 150px;
+    }
+    .person{
+        margin-left: 10px;
+    }
+    .cart{
+        margin-left: 10px;
+        margin-right: 20px;
+    }
+}
+.search {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
     margin-left: 4%;
-    
-    img{
+
+    img {
         margin-left: 2%;
     }
-    input{
+    input {
         border: none;
         margin-left: 2%;
 
     }
-    input:focus{
-        border:none;
+    input:focus {
+        border: none;
         outline: none;
     }
 }
 
-.search-box{
-    width: 490px;
-height: 33px;
-border-radius: 3px solid white;
-opacity: 1;
-margin-top: 0px;
-border-radius: 3px;
-border-color: #FFFFFF;
-}
-
-.search-icon{
+.search-box {
     width: 490px;
     height: 33px;
-    color:#9D9D9D;
+    border-radius: 3px solid white;
+    opacity: 1;
+    margin-top: 0px;
+    border-radius: 3px;
+    border-color: #FFFFFF;
+}
+
+.search-icon {
+    width: 490px;
+    height: 33px;
+    color: #9D9D9D;
     margin-right: 2000px;
 }
 
-.cart-profile{
+.cart-profile {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.person{
-color: #FFFFFF;
-opacity: 1;
-margin-left: 20px;
-margin-top: 18px;
-display: flex;
-flex-direction: column;
-align-items: center;
-// padding-left: 1%;
-// padding-right: 1%;
+.person {
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: 20px;
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding-left: 1%;
+    // padding-right: 1%;
 
 }
 
-.cart{
+.cart {
     margin-top: -5px;
     margin-left: 30px;
     color: #FFFFFF;
@@ -95,13 +128,13 @@ align-items: center;
     flex-direction: column;
     align-items: center;
     width: 15px;
-height: 16px;
-    
+    height: 16px;
+
 }
 
-.cart-number{
+.cart-number {
 
-    color:#A03037;
+    color: #A03037;
     background-color: white;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
@@ -110,30 +143,164 @@ height: 16px;
     border-radius: 20px;
 }
 
-.line-1{
-    width: 0px;
-height: 58px;
-border: 1px solid #8F2B2F;
-opacity: 1;
-margin-left:206px;
-}
-
-.line-2{
-    width: 0px;
-height: 58px;
-border: 1px solid #8F2B2F;
-opacity: 1;
-margin-left:20px;
-}
-
-.line-3{
+.line-1 {
     width: 0px;
     height: 58px;
     border: 1px solid #8F2B2F;
     opacity: 1;
-    margin-left:10px;
+    margin-left: 206px;
+}
+
+.line-2 {
+    width: 0px;
+    height: 58px;
+    border: 1px solid #8F2B2F;
+    opacity: 1;
+    margin-left: 20px;
+}
+
+.line-3 {
+    width: 0px;
+    height: 58px;
+    border: 1px solid #8F2B2F;
+    opacity: 1;
+    margin-left: 10px;
+
+}
+
+.white-line {
+    position: absolute;
+    width: 78px;
+    height: 8px;
+    border-radius: 3px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    top: 56px;
+    left: 1060px;
 
 }
 
 
+.dialog-login {
+    position: absolute;
+    width: 180px;
+    height: 182px;
+    top: 64px;
+    left: 900px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
 
+    * {
+        margin-left: 8%;
+    }
+
+    :first-child {
+        font: normal normal medium 12px/16px Roboto;
+        letter-spacing: 0px;
+        color: #0A0102;
+        margin-top: 3%;
+        margin-left: 10%;
+    }
+
+    .profile,
+    .my-orders,
+    .wishlist {
+        font: normal normal normal 12px/16px Roboto;
+        display: flex;
+        color: #878787;
+        align-items: center;
+        cursor: pointer;
+
+        mat-icon {
+            color: #878787;
+            margin-top: 0;
+            margin-bottom: 4.5%;
+        }
+
+        height: auto;
+    }
+
+    .logout-btn {
+        border: 1px solid #A03037;
+        border-radius: 2px;
+        width: 123px;
+        height: 33px;
+        margin-top: 0;
+        margin-left: 15%;
+        color: #A03037;
+    }
+}
+
+.dialog-not-login{
+    width: 261px;
+    height: 200px;
+    position:absolute;
+    top: 64px;
+    left: 950px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    z-index: 1;
+ 
+    .nologin-orders {
+        padding-top: 2%;
+    }
+ 
+    .nologin-orders,
+    .nologin-wishlist {
+        font: normal normal normal 12px/16px Roboto;
+        display: flex;
+        color: #878787;
+        align-items: center;
+        cursor: pointer;
+        margin-left: 7%;
+        margin-top: 0.2%;
+ 
+        mat-icon {
+            font-size: 20px;
+            color: #878787;
+            margin-top: 0;
+            margin-bottom: 4.5%;
+            margin-right: 1%;
+        }
+    }
+ 
+    .welcome-login-signup{
+        margin-left: 8%;
+        margin-right: 5%;
+        padding-bottom: 5%;
+        margin-bottom: 3%;
+        margin-top: 3%;
+        border-bottom: 1px solid gray;
+ 
+        :first-child {
+            font: normal normal medium 12px/16px Roboto;
+            letter-spacing: 0px;
+            color: #0A0102;
+            font-weight: 800;
+        }
+ 
+        :nth-child(2) {
+            font: normal normal normal 12px/16px Roboto;
+            letter-spacing: 0px;
+            color: #878787;
+        }
+ 
+        button {
+            border: 1px solid #A03037;
+            border-radius: 2px;
+            width: 123px;
+            height: 33px;
+            margin-top: 0;
+            margin-left: 0;
+            font: normal normal normal 12px/16px Roboto;
+            letter-spacing: 0px;
+            color: #A03037;
+        }
+
+        
+    }
+ 
+}

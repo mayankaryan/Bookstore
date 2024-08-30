@@ -5,6 +5,7 @@
 
      <div class="filter">
         <mat-form-field> 
+            <mat-label>Sort by relevence</mat-label>
             <mat-select (selectionChange)="filter($event.value)" >
                 <mat-option value="quantity" >Sort by relevance</mat-option>
                 <mat-option value="price">Price: Low to High</mat-option>
@@ -13,10 +14,22 @@
           </mat-form-field>
      </div>
     </div>
-    <div class="books">
-       <div *ngFor="let book of filteredBookList | search:searchText">
-        <app-bookwidget [book]="book"></app-bookwidget>
+
+    <div *ngIf="isLoading" class="spinner">
+        <mat-spinner color="warn" ></mat-spinner>
+      </div>
+
+    <div *ngIf="!isLoading" class="books">
+       <div *ngFor="let i of paginatedBookList | search:searchText">
+        <app-bookwidget [book]="i"></app-bookwidget>
        </div>
     </div>
+    <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1" class="nav_btn"> < </button>
+        <span class="pg_num pg_1" [ngClass]="{'active-page': currentPage === 1}">1</span>
+        <span class="pg_num pg_2" [ngClass]="{'active-page': currentPage === 2}">2</span>
+        <span class="pg_num pg_3"[ngClass]="{'active-page': currentPage === 3}">3</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="nav_btn"> >  </button>
+      </div>
 </div>
 <app-footer></app-footer>

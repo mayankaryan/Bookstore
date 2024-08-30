@@ -24,31 +24,43 @@ export class DashboardComponent {
   booklist:any[]=[];
   @Input() searchText: string = '';
   filteredBookList:any[]=[];
+  currentPage:number=1;
+  itemsPerPage:number=8;
+  totalPages:number=0;
   selectedSortOption: string = 'relevance'; 
+  isLoading:boolean = true;
   constructor(private httpservice:HttpService,private dataservice:DataService) { 
-    this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
-      next:(res:any)=>{
-        this.booklist=res.result;
-        console.log(this.booklist);
-        this.booklist = this.booklist.map((note: any) => ({
-          ...note,
-          book_url: this.getRandombookimg()
-        }));
-        this.filteredBookList=this.booklist;
-        console.log("filtered",this.booklist);
-        console.log(res.result[0]);
-      },error:(err:any)=>{
-        console.log(err);
-      }
-    })
-
    
-    
-    this.dataservice.currentMessage.subscribe((message) => {
-      this.searchText =message ;
-});
+  }
+  ngOnInit(){
+     this.fetchBook();
   }
 
+  fetchBook(){
+     setTimeout(()=>{
+      this.httpservice.GetApiCall("bookstore_user/get/book").subscribe({
+        next:(res:any)=>{
+          this.booklist=res.result;
+          console.log(this.booklist);
+          this.booklist = this.booklist.map((note: any) => ({
+            ...note,
+            book_url: this.getRandombookimg()
+          }));
+          this.filteredBookList=this.booklist;
+          this.updatePagination();
+          console.log("filtered",this.booklist);
+          console.log(res.result[0]);
+        },error:(err:any)=>{
+          console.log(err);
+        }
+      })
+      this.dataservice.currentMessage.subscribe((message) => {
+        this.searchText =message ;
+    });
+    this.isLoading = false;
+     },1000);
+  }
+  
   length(): number {
     return this.booklist.length;
   }
@@ -58,11 +70,41 @@ export class DashboardComponent {
     return this.bookimages[randomIndex];
   }
 
+
+
  filter(event:any){
     this.selectedSortOption=event;
     this.filteredBookList = this.booklist;
     this.filteredBookList.sort((a: any, b: any) => {
       return a[event] - b[event];
     });
+    this.updatePagination();
  }
+
+  updatePagination() {
+    this.totalPages = Math.ceil(this.filteredBookList.length / this.itemsPerPage);
+    this.currentPage = 1;
+  }
+  get paginatedBookList() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filteredBookList.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+    goToPage(page: number) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
+      }
+    }
+
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    }
+
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    }
 }

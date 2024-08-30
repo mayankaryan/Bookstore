@@ -8,15 +8,17 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { OrderComponent } from './component/order/order.component';
 import { PleaseLoginComponent } from './component/please-login/please-login.component';
-import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
+import { LoginComponent } from './component/login/login.component';
 import { LoginSignupComponent } from './component/login-signup/login-signup.component';
+import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
 
+import { authGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent
   },
-  { path: 'mycart',   component: MycartComponent },
+  { path: 'mycart',   component: MycartComponent ,canActivate: [authGuard] },
   { path: 'wishlist', component: WishlistComponent  },
   { path: 'order',    component: OrderComponent  },
   {
@@ -29,6 +31,14 @@ const routes: Routes = [
   {
     path: 'forgotpassword',
     component: ForgotPasswordComponent
+  },
+  {
+    path:'wishlist-login',
+    component:PleaseLoginComponent
+  },
+  {
+    path:'login-signup',
+    component:LoginSignupComponent
   },
   { path: 'wishlist-login', component: PleaseLoginComponent },
   { path: 'order-placed', component: OrderPlacedComponent},

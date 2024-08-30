@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <div class="main-cnt">
     <div class="route-cnt">
         <span class="home-span">Home / </span><span>My Order</span>
@@ -7,57 +9,43 @@
         <div class="order-heading">
             <p>My Order (1)</p>
         </div>
-
-        <div class="order-content">
-            <div>
-                <div class="img-cnt">
-                    <img src="../../../assets/books/book 2.png" alt="">
-                </div>
-                <div class="book-detials">
-                    <p>Don't make me think</p>
-                    <p id="auther-name">by Steve Krug</p>
-                    <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
-                </div>
-            </div>
-            <div class="deliver-dtls">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
-                        fill="#26A541">
-                        <path
-                            d="M480.2-240Q380-240 310-309.8q-70-69.8-70-170T309.8-650q69.8-70 170-70T650-650.2q70 69.8 70 170T650.2-310q-69.8 70-170 70Z" />
-                    </svg>
-                </div>
-                <div>
-                    Order placed on May 21
-                </div>
-            </div>
-        </div>
-        <div class="order-content">
-            <div>
-                <div class="img-cnt">
-                    <img src="../../../assets/books/book 2.png" alt="">
-                </div>
-                <div class="book-detials">
-                    <p>Don't make me think</p>
-                    <p id="auther-name">by Steve Krug</p>
-                    <P>Rs. 1500 &nbsp;<span>Rs2000</span></P>
-                </div>
-            </div>
-            <div class="deliver-dtls">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
-                        fill="#26A541">
-                        <path
-                            d="M480.2-240Q380-240 310-309.8q-70-69.8-70-170T309.8-650q69.8-70 170-70T650-650.2q70 69.8 70 170T650.2-310q-69.8 70-170 70Z" />
-                    </svg>
-                </div>
-                <div>
-                    Order placed on May 21
+        <div *ngIf="isLoading" class="spinner">
+            <mat-spinner></mat-spinner>
+          </div>
+        <div *ngIf="!isLoading">
+            <div *ngFor="let order of orderlist">
+                <div class="order-content">
+                    <div>
+                        <div class="img-cnt">
+                            <img src="../../../assets/books/book2.png" alt="">
+                        </div>
+                        <div class="book-detials">
+                            <p>{{order.product_name}}</p>
+                            <p id="auther-name">by {{order.product_name}}</p>
+                            <P>Rs. {{order.product_price}} &nbsp;<span>Rs2000</span></P>
+                            <p>
+                                <span>Qty: {{order.product_quantity}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="deliver-dtls">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                                fill="#26A541">
+                                <path
+                                    d="M480.2-240Q380-240 310-309.8q-70-69.8-70-170T309.8-650q69.8-70 170-70T650-650.2q70 69.8 70 170T650.2-310q-69.8 70-170 70Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            Order placed on {{order.createdAt}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
     </div>
 
 </div>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
