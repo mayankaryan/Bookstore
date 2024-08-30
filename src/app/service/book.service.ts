@@ -8,7 +8,7 @@ export class BookService {
 
   constructor(private httpservice:HttpService) { }
   url='bookstore_user/get/feedback/';
-  access_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhMDkzY2VhZTVjNDAwMGVkMGVkMDIiLCJpYXQiOjE3MjQ5MTY2MTIsImV4cCI6MTcyNTAwMzAxMn0.mgMuJ11prm-fuKrUB37UNf2PgaHhpGBJ43V1oizC0VU';
+  access_token=localStorage.getItem('access-token');
   getFeedBack(id:any){
     console.log("id from service",id);
     const myHeaders = new Headers();
