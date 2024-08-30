@@ -174,3 +174,87 @@ mat-form-field{
     opacity: 0.4;
   }
 
+  @media (max-width: 1200px) {
+    .bookdetails_page_div {
+        margin: 20px 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    .bookdetails_page_div {
+        margin: 20px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tool {
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+
+    .bookdetails_page_div {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 20px;
+    }
+
+    .book_images {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .img_sml {
+        margin: 5px;
+    }
+
+    .book_image_main {
+        margin: 10px 0;
+    }
+    .sub_img{
+        display: flex;
+    }
+
+    .add_bag_btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .tool {
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+    .book_details{
+       width: 380px;
+    }
+
+    .bookdetails_page_div {
+      
+        padding: 10px;
+        margin: 20px;
+    }
+    .sub_img{
+        display: flex;
+    }
+
+    .book_images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img_sml {
+        margin: 5px 0;
+    }
+
+    .book_image_main {
+        margin: 10px 0;
+    }
+
+    .add_bag_btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+

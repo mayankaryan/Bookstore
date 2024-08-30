@@ -86,3 +86,12 @@ img {
 .deliver-dtls div {
     font-weight: 700;
 }
+
+@media (max-width:530px){
+    .order-content{
+        display: block;
+    }
+    .deliver-dtls{
+        margin-top: 5px;
+    }
+}
