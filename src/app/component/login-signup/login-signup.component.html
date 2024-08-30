@@ -5,37 +5,47 @@
 
         <div class="first-container">
             <div class="btn-cnt">
-                <button (click)="showLogin()" [disabled]="isLoginVisible">LOGIN</button>
-                <button (click)="showSignup()" [disabled]="!isLoginVisible">SIGNUP</button>
+                <div class="header">
+                    <div>
+                        <button [@fade]="loginState" (click)="fadeSignup()" (click)="showLogin()" [disabled]="isLoginVisible">LOGIN</button>
+
+                        <!-- <button [@fade]="loginState" (click)="fadeSignup()">LOGIN</button> -->
+                    </div>
+                    <div class="parentline" *ngIf="isLoginVisible"></div>
+                </div>
+                
+                <div class="header">
+                    <div>
+                        <button (click)="showSignup()" [disabled]="!isLoginVisible" [@fade]="signupState" (click)="fadeLogin()">SIGNUP</button>
+                        <!-- <button [@fade]="signupState" (click)="fadeLogin()">SIGNUP</button> -->
+                        
+                    </div>
+                    <div class="parentline" *ngIf="!isLoginVisible"></div>
+                    <!-- <div class="line"></div> -->
+                </div>
+
             </div>
 
-            <div *ngIf="isLoginVisible">
 
+            <div *ngIf="isLoginVisible">
                 <form>
                     <label for="login-email">Email Id</label><br>
-                    <input type="text"  name="email" required><br>
+                    <input type="text" name="email" required><br>
                     <label for="login-password">Password </label>
                     <input type="password" id="login-password" name="password" required><br>
                     <a routerLink="/forgot-password" style="border-color: #F5F5F5;">Forgot Password?</a><br>
-
-
-
-
                     <button style="background-color: brown;" class="l-button">LOGIN</button>
-                    <p>--------------------<b>OR</b>---------------------</p>
+                    <div class="separator">
+                        <span>OR</span>
+                      </div>
+                      
                     <div class="FG-btn">
                         <button style="background-color: #4266B2 ; color: #F5F5F5;" class="btn2">FACEBOOK</button>
                         <button style="background-color: #F5F5F5; border-color: #d2c4c4;" class="btn3">GOOGLE</button>
                     </div>
                 </form>
             </div>
-            <!-- <div class="FG-btn">
-                <button style="background-color: #4266B2 ;" class="btn2">FACEBOOK</button>
-                <button style="background-color: #F5F5F5;" class="btn3">GOOGLE</button>
-             </div> -->
-
             <div *ngIf="!isLoginVisible">
-
                 <form style="align-items:center ;">
                     <label for="signup-username">FullName</label>
                     <input type="text" id="FullName" name="Fullname" required><br>
@@ -49,6 +59,5 @@
                 </form>
             </div>
         </div>
-
     </div>
 </div>
