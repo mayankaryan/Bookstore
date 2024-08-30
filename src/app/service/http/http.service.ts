@@ -29,4 +29,14 @@ postApiCall(url:any,data:any,token:boolean,headers:any){
  PostApiCall (url: string, data: any) {
   return this.httpClient.post(this.BaseUrl+url, data);
  }
+
+ PutApiAuthCall (url:string, id: any, data: any, token: boolean, headers: any) {
+  return this.httpClient.put(this.BaseUrl + url + id, data, token&&headers);
+ }
+
+ DeleteApiAuthCall(url: string, id: any, token: boolean, headers: any) {
+  return this.httpClient.delete(this.BaseUrl + url + id, token&&headers)
+ }
+
 }
+

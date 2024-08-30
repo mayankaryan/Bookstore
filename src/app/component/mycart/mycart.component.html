@@ -15,6 +15,7 @@
         </div>
 
         <!--------------Book List of my Cart --------------------------->
+        <div class="scroll-cnt">
         <div class="cart-content" *ngFor="let item of cartItems; let ind = index">
             <div class="img-cnt">
                 <img src="../../../assets/books/book2.png" alt="">
@@ -28,10 +29,13 @@
                     <button (click)="decrement(ind)">-</button>
                     <input type="number" [(ngModel)]="item.quantityToBuy">
                     <button (click)="increment(ind)">+</button>
+                    <button id="remove-btn" (click)="removeBook(ind)">remove</button>
                 </div>
+                
             </div>         
         </div>
-
+        </div>
+        
         <!------------ Button: Place Order ------------------->
         <div class="btn-cnt">
             <button (click)="onPlaceOrder()">PLACE ORDER</button>
@@ -63,7 +67,7 @@
         </div>
 
         <!------------ User Address ----------------------------------------->
-        <div class="customer-address" *ngIf="!summaryContent">
+        <div class="customer-address scroll-cnt" *ngIf="!summaryContent">
             <mat-radio-group [(ngModel)]="custAddress">
                 <div *ngFor="let item of address; let ind = index">
 
@@ -75,7 +79,7 @@
                     <!------------------User Address shown before selecting radio button -------------->
                     <div class="address">
                         <p>Address</p>
-                        <p *ngIf="custAddress!==ind">{{item.fullAddress}}, {{item.city}}, {{item.state}}</p>
+                        <p *ngIf="custAddress != ind">{{item.fullAddress}}, {{item.city}}, {{item.state}}</p>
 
                         <!------------------User Address shown after selecting radio button, editable input and textarea-------------->
                         <div class="edit-address"  *ngIf="custAddress==ind">
@@ -138,7 +142,7 @@
     <div class="summary-cnt">
         <p>Order summary</p>
 
-        <div *ngIf="summaryContent">
+        <div class="scroll-cnt" *ngIf="summaryContent">
         <div class="cart-content"  *ngFor="let item of cartItems">
             <div class="img-cnt">
                 <img src="../../../assets/books/book2.png" alt="">
@@ -149,11 +153,11 @@
                 <P>Rs. {{item.product_id.discountPrice}} &nbsp;<span>Rs {{item.product_id.price}}</span></P>
             </div>         
         </div>
+        </div>
 
         <!--------Button: Checkout ------------------------>
-        <div class="btn-cnt">
+        <div class="btn-cnt" *ngIf="summaryContent">
             <button [routerLink]="['/order-placed']">CHECKOUT</button>
-        </div>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { UserService } from 'src/app/service/user/user.service';
 import { FormControl, FormGroup, Validators,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
+import { SnackbarService } from 'src/app/service/snackbar.service';
 
 @Component({
   selector: 'app-login-signup',
@@ -15,7 +16,13 @@ export class LoginSignupComponent implements OnInit {
   login!: FormGroup;
   signup!: FormGroup;
 
-  constructor(private fb:FormBuilder,private userservive:UserService,private loginService: LoginService,private router: Router) {
+  constructor(
+    private fb:FormBuilder,
+    private userservive:UserService,
+    private loginService: LoginService,
+    private router: Router,
+    private snackbarService: SnackbarService,
+  ) {
 
   }
   ngOnInit() {
@@ -65,13 +72,14 @@ export class LoginSignupComponent implements OnInit {
         next: (res: any) => {
           console.log('login', res);
           localStorage.setItem('access-token', res.result.accessToken);
+          this.snackbarService.openCustomSnackBar('login successful !!', 'done'); 
           this.router.navigate([''])
         },
         error: (err: any) => {
           console.log(err);
+          this.snackbarService.openCustomSnackBar('login failed !!', 'report-problem');
         }
       })
-
   }
 
   showLogin() {
